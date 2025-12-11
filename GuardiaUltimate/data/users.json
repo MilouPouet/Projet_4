@@ -1,7 +1,18 @@
 {
     "admin": {
+<<<<<<< HEAD
         "hash": "134e1d8486bd5cfc2c0f4b6deab7b1ab7e2506b78b8b7bb921a4f6563887d323:ea55ae68616f5d91b1406ae290820018156718ea58b8a3ecdb01d3ec29ea8050",
         "role": "admin",
         "2fa_secret": "EYTWYITKZIJLLF3L5K2FDKIL5KXP6DWT"
+=======
+        "hash": "2334a207220de02a15e7dc2fd78073e0d7a7ffe96a87fc722efc16ae3fc1ec6d:ecb024e7722b0eaa3b78653db56a37fe15420895b2f0ad8d39c88bc106dd6ca1",
+        "role": "admin",
+        "2fa_secret": "7GKL7ZWG7CRLXMZFOOIMQCSSEBFRLOHF"
+    },
+    "Trystan": {
+        "hash": "4e70bf333d36826cf6b766f88cae92200f1450c95b509d5623eb1c6124cc9be2:add8d36941ff9b4d715376c32d7f71b3e495f68fb3ffc5f81f301dea93d11eda",
+        "role": "client",
+        "2fa_secret": "NNB4IFELSGKDEKORWDX7KZDQJE5A426S"
+>>>>>>> main
     }
 }

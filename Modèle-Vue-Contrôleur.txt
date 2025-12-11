@@ -1,0 +1,16 @@
+Projet_4/
+│
+├── data/                 # Stockage des CSV (Exclus du Git en prod normalement)
+│   ├── users.csv
+│   ├── products.csv
+│   └── orders.csv
+│
+├── src/                  # Code Source
+│   ├── __init__.py
+│   ├── auth.py           # Module 2 : Gestion Authentification
+│   ├── product_manager.py # Module 1 : Gestion Produits
+│   ├── security.py       # Fonctions crypto (Hash + Salt)
+│   └── database.py       # Gestionnaire CSV générique
+│
+├── main.py               # Point d'entrée (Lancement de l'app)
+└── requirements.txt      # Dépendances (requests, etc.)
