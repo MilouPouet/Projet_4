@@ -1,9 +1,0 @@
-requests
-matplotlib
-seaborn
-PyQt5
-flask
-cryptography
-pyotp
-qrcode
-pillow
