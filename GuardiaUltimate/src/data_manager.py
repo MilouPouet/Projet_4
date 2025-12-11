@@ -4,7 +4,6 @@ import json
 import shutil
 import webbrowser
 import uuid
-# Import timedelta pour calculer les jours manquants
 from datetime import datetime, timedelta
 from typing import List, Dict
 from src.security import SecurityService
@@ -62,11 +61,8 @@ class DataManager:
         return {}
 
     def get_sales_per_day(self):
-        """Retourne les ventes en remplissant les jours manquants avec 0."""
         orders = self.get_all_orders()
         sales_raw = {}
-        
-        # 1. On récupère les données brutes
         for o in orders:
             raw_date = o['date']
             try:
@@ -77,23 +73,15 @@ class DataManager:
             except:
                 continue
         
-        if not sales_raw:
-            return {}
-
-        # 2. On remplit les trous entre le premier et le dernier jour
+        if not sales_raw: return {}
         sorted_dates = sorted(sales_raw.keys())
-        start_date = datetime.strptime(sorted_dates[0], "%Y-%m-%d")
-        end_date = datetime.strptime(sorted_dates[-1], "%Y-%m-%d")
-        
+        start = datetime.strptime(sorted_dates[0], "%Y-%m-%d")
+        end = datetime.strptime(sorted_dates[-1], "%Y-%m-%d")
         sales_full = {}
-        delta = end_date - start_date
-        
+        delta = end - start
         for i in range(delta.days + 1):
-            day = start_date + timedelta(days=i)
-            day_str = day.strftime("%Y-%m-%d")
-            # Si le jour existe on met la valeur, sinon 0
-            sales_full[day_str] = sales_raw.get(day_str, 0)
-            
+            day = (start + timedelta(days=i)).strftime("%Y-%m-%d")
+            sales_full[day] = sales_raw.get(day, 0)
         return sales_full
 
     def get_top_products(self):
@@ -104,8 +92,7 @@ class DataManager:
                 name = item['nom']
                 qty = int(item['qty'])
                 counts[name] = counts.get(name, 0) + qty
-        sorted_products = sorted(counts.items(), key=lambda x: x[1], reverse=True)
-        return sorted_products[:5]
+        return sorted(counts.items(), key=lambda x: x[1], reverse=True)[:5]
 
     def get_all_products(self) -> List[Dict]:
         data = []
@@ -129,7 +116,6 @@ class DataManager:
             real = int(float(p['quantite']))
         except:
             real = 0
-        
         orders = self.get_all_orders()
         res = 0
         for o in orders:
@@ -213,6 +199,56 @@ class DataManager:
             if not exists: w.writeheader()
             w.writerow(p)
         self.record_daily_stock()
+
+    def update_product_data(self, product_id, new_data):
+        self.create_backup()
+        rows = self.get_all_products()
+        updated = False
+        
+        for r in rows:
+            if r['id'] == product_id:
+                r.update(new_data)
+                updated = True
+                break
+        
+        if updated:
+            with open(DATA_FILE, 'w', newline='', encoding='utf-8') as f:
+                w = csv.DictWriter(f, fieldnames=["id","nom","prix","quantite","categorie","secret_info"])
+                w.writeheader()
+                for r in rows:
+                    r_save = r.copy()
+                    r_save['secret_info'] = SecurityService.encrypt_data(r['secret_info'])
+                    w.writerow(r_save)
+            self.record_daily_stock()
+            return True
+        return False
+
+    def adjust_stock(self, product_id, delta):
+        self.create_backup()
+        rows = self.get_all_products()
+        updated = False
+        
+        for r in rows:
+            if r['id'] == product_id:
+                try:
+                    current = int(float(r['quantite']))
+                    new_qty = max(0, current + delta)
+                    r['quantite'] = new_qty
+                    updated = True
+                except: pass
+                break
+        
+        if updated:
+            with open(DATA_FILE, 'w', newline='', encoding='utf-8') as f:
+                w = csv.DictWriter(f, fieldnames=["id","nom","prix","quantite","categorie","secret_info"])
+                w.writeheader()
+                for r in rows:
+                    r_save = r.copy()
+                    r_save['secret_info'] = SecurityService.encrypt_data(r['secret_info'])
+                    w.writerow(r_save)
+            self.record_daily_stock()
+            return True
+        return False
 
     def delete_product(self, pid):
         self.create_backup()
