@@ -1,16 +1,35 @@
 Projet_4/
 │
-├── data/                 # Stockage des CSV (Exclus du Git en prod normalement)
-│   ├── users.csv
-│   ├── products.csv
-│   └── orders.csv
+├── Modèle-Vue-Contrôleur.txt
+├── README.md
 │
-├── src/                  # Code Source
-│   ├── __init__.py
-│   ├── auth.py           # Module 2 : Gestion Authentification
-│   ├── product_manager.py # Module 1 : Gestion Produits
-│   ├── security.py       # Fonctions crypto (Hash + Salt)
-│   └── database.py       # Gestionnaire CSV générique
-│
-├── main.py               # Point d'entrée (Lancement de l'app)
-└── requirements.txt      # Dépendances (requests, etc.)
+└── Trystan/
+    ├── run.bat
+    ├── update.bat
+    ├── update_guardia.py
+    │
+    └── GuardiaUltimate/
+        ├── api_server.py
+        ├── generate_stock.py
+        ├── main.py
+        ├── main_app.py
+        ├── requirements.txt
+        ├── secret.key
+        │
+        ├── data/
+        │   ├── backups/
+        │   ├── produits.csv
+        │   └── users.json
+        │
+        ├── logs/
+        │   └── audit.log
+        │
+        └── src/
+            ├── __init__.py
+            ├── data_manager.py
+            ├── security.py
+            │
+            └── __pycache__/
+                ├── __init__.cpython-314.pyc
+                ├── data_manager.cpython-314.pyc
+                └── security.cpython-314.pyc

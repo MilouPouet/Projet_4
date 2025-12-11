@@ -1,0 +1,32 @@
+[
+    {
+        "id": "CMD-1765439525",
+        "user": "Trystan",
+        "date": "11/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "235679db-77e4-4b6d-a76b-890b13887e59",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 269.0
+    },
+    {
+        "id": "CMD-1765439537",
+        "user": "Trystan",
+        "date": "11/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "3686a937-85ee-4c2f-a08d-4e7a884c63a5",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 49.8
+    }
+]
