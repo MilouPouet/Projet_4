@@ -8,5 +8,75 @@
         "hash": "4e70bf333d36826cf6b766f88cae92200f1450c95b509d5623eb1c6124cc9be2:add8d36941ff9b4d715376c32d7f71b3e495f68fb3ffc5f81f301dea93d11eda",
         "role": "client",
         "2fa_secret": "NNB4IFELSGKDEKORWDX7KZDQJE5A426S"
+    },
+    "LaraClette": {
+        "hash": "8097a925f0ce895c8a43f8a323a7a4603366b741315c7ad3ee5f05be5d5fd7f2:cb36b30e55361c7ea30bd36ce8bc79e8fb79ec9e99404326b8b8c1bc1c0dbdec",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "AlainTerieur": {
+        "hash": "1165f611b14010b8a1383f84d72d4e6197bcefd7a788f6f68c9f07f502601eed:eadd9a2b2b1f70e1694ef836912cd139a6b9fac9fbbbf1b0f49aa75f0b3eac46",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "SarahCroche": {
+        "hash": "5096bbed1ec60d707d403e0b47e039881c2ae0cf98ef6605c3963c1506cb2482:d541bffad91d6e3c34fa4b4dfe30ae22d36a875e26d2aa95d236ae719c69f965",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "DaisyDrate": {
+        "hash": "63d1eb64de256f2a3c34dc813879c5bae9f1fe42863752269dc0a0e171ea734d:4d6efbc4216aef8f325c7d10509c81b4cc0647459e9215f460df6c1e8e6cfa99",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "GerardMensoif": {
+        "hash": "e0b371072a6388f06fe5d695972ed1a047c76185717d35809392f23b73093f3c:12cc7804efdfc357e2e7c67a8385f4fa88902db0cde6cdc34a559b89039c39b0",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "EllaDanlos": {
+        "hash": "a7cb29b252fd5ae6528f92d41769a430b43e9387fc6ae87a0fdf3860c3824018:7f0be387facb73a17f4531d76b1aa28b53baee0b89215a5d14040a6d577d3e23",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "JerryGolay": {
+        "hash": "b94b892c7703fe1494e5316cc01ae32ba1971f41e220435708d168309de50c2d:030474781613afad712bc292ce2c2ef717b8f36f811fd3603ede5200d7f78f4d",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "NordineAteur": {
+        "hash": "259684632b065afb93c3d7eb088c9915a40c1d3e59482f91c1b794e72d6014fc:5dd889a4f0aad242556b5fdced4cb4c05b873fc6ce35f3ce3d1d6272d49eb255",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "SandraNicouette": {
+        "hash": "d49cdf02f62bc65d36997b8c8aaadf3deb0cfaaf50c9dfa14b4a4a5d89d91af0:5deae72f87381a4659550f093e0b5593bd47dbd26e4d63600666bdeb8f72d5b1",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "TheoPhile": {
+        "hash": "3daeb28596713d6a5bf27ac6bd754b38057420c7156be1788729cc6d9180a13f:dab08fbcc8f2a887496892a41f041fe068be26ec4b930a7cc79c0cb045663ad1",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "VincentTime": {
+        "hash": "88b00e708973935c490ea9f1278e723ec043c1ae28de405638871b57ee743f82:3b6577894217a2dff5c63c2251aafc01a9719931075329b81aee8f083c638d75",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "AudeJavel": {
+        "hash": "83d79de63da22b267d952baf092bc2968b92cc4dd4e7e80bb22e36ed54e32788:6c759dc859e0bbe39777b6e053b582099c0f39b3caacddc86f1a219c796e6cf0",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "JeanBonneau": {
+        "hash": "e43887b1d33781804dd378879f6d494fcd06cf09334b2ccfa60192fd4936aafa:5417671bc3df81cefb6ef98037502932955535f18b988c5af43eeb6ab36b6288",
+        "role": "client",
+        "2fa_secret": null
+    },
+    "PhilDefer": {
+        "hash": "318d7c7aefc2fdb6b7cde3599805df6574297202188591a0735687eb26fd56bf:973bd0d8e4cf383bc95c93bc9e1d51879d0b8831414fe5d31fc27c484d195c35",
+        "role": "client",
+        "2fa_secret": null
     }
 }

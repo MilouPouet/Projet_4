@@ -3,8 +3,9 @@ import os
 import json
 import shutil
 import webbrowser
-import uuid  # <--- IMPORT IMPORTANT
-from datetime import datetime
+import uuid
+# Import timedelta pour calculer les jours manquants
+from datetime import datetime, timedelta
 from typing import List, Dict
 from src.security import SecurityService
 
@@ -15,6 +16,7 @@ BACKUP_DIR = os.path.join(DATA_DIR, "backups")
 DATA_FILE = os.path.join(DATA_DIR, "produits.csv")
 USER_FILE = os.path.join(DATA_DIR, "users.json")
 ORDER_FILE = os.path.join(DATA_DIR, "orders.json")
+STATS_FILE = os.path.join(DATA_DIR, "stats.json")
 
 class DataManager:
     def __init__(self):
@@ -26,11 +28,84 @@ class DataManager:
         if not os.path.exists(ORDER_FILE):
             with open(ORDER_FILE, 'w') as f:
                 json.dump([], f)
+        if not os.path.exists(STATS_FILE):
+            with open(STATS_FILE, 'w') as f:
+                json.dump({}, f)
 
     def create_backup(self):
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         if os.path.exists(DATA_FILE):
             shutil.copy2(DATA_FILE, os.path.join(BACKUP_DIR, f"back_{ts}.csv"))
+
+    def record_daily_stock(self):
+        today = datetime.now().strftime("%Y-%m-%d")
+        total_qty = sum(int(float(p['quantite'])) for p in self.get_all_products())
+        stats = {}
+        if os.path.exists(STATS_FILE):
+            try:
+                with open(STATS_FILE, 'r') as f:
+                    stats = json.load(f)
+            except:
+                pass
+        stats[today] = total_qty
+        with open(STATS_FILE, 'w') as f:
+            json.dump(stats, f, indent=4)
+
+    def get_stock_history(self):
+        self.record_daily_stock()
+        if os.path.exists(STATS_FILE):
+            try:
+                with open(STATS_FILE, 'r') as f:
+                    return json.load(f)
+            except:
+                pass
+        return {}
+
+    def get_sales_per_day(self):
+        """Retourne les ventes en remplissant les jours manquants avec 0."""
+        orders = self.get_all_orders()
+        sales_raw = {}
+        
+        # 1. On récupère les données brutes
+        for o in orders:
+            raw_date = o['date']
+            try:
+                date_obj = datetime.strptime(raw_date, "%d/%m/%Y")
+                fmt_date = date_obj.strftime("%Y-%m-%d")
+                qty = sum(int(item['qty']) for item in o['items'])
+                sales_raw[fmt_date] = sales_raw.get(fmt_date, 0) + qty
+            except:
+                continue
+        
+        if not sales_raw:
+            return {}
+
+        # 2. On remplit les trous entre le premier et le dernier jour
+        sorted_dates = sorted(sales_raw.keys())
+        start_date = datetime.strptime(sorted_dates[0], "%Y-%m-%d")
+        end_date = datetime.strptime(sorted_dates[-1], "%Y-%m-%d")
+        
+        sales_full = {}
+        delta = end_date - start_date
+        
+        for i in range(delta.days + 1):
+            day = start_date + timedelta(days=i)
+            day_str = day.strftime("%Y-%m-%d")
+            # Si le jour existe on met la valeur, sinon 0
+            sales_full[day_str] = sales_raw.get(day_str, 0)
+            
+        return sales_full
+
+    def get_top_products(self):
+        orders = self.get_all_orders()
+        counts = {}
+        for o in orders:
+            for item in o['items']:
+                name = item['nom']
+                qty = int(item['qty'])
+                counts[name] = counts.get(name, 0) + qty
+        sorted_products = sorted(counts.items(), key=lambda x: x[1], reverse=True)
+        return sorted_products[:5]
 
     def get_all_products(self) -> List[Dict]:
         data = []
@@ -47,7 +122,6 @@ class DataManager:
 
     def get_stock_status(self, pid):
         prods = self.get_all_products()
-        # Recherche par ID unique
         p = next((x for x in prods if x['id'] == pid), None)
         if not p:
             return (0, 0, 0)
@@ -131,7 +205,6 @@ class DataManager:
 
     def add_product(self, p):
         self.create_backup()
-        # --- FIX UUID : ID UNIQUE GARANTI ---
         p['id'] = str(uuid.uuid4())
         p['secret_info'] = SecurityService.encrypt_data(p.get('secret_info',''))
         exists = os.path.isfile(DATA_FILE)
@@ -139,6 +212,7 @@ class DataManager:
             w = csv.DictWriter(f, fieldnames=["id","nom","prix","quantite","categorie","secret_info"])
             if not exists: w.writeheader()
             w.writerow(p)
+        self.record_daily_stock()
 
     def delete_product(self, pid):
         self.create_backup()
@@ -151,6 +225,7 @@ class DataManager:
             w = csv.DictWriter(f, fieldnames=["id","nom","prix","quantite","categorie","secret_info"])
             w.writeheader()
             w.writerows(new_rows)
+        self.record_daily_stock()
 
     def get_all_orders(self):
         if os.path.exists(ORDER_FILE):
@@ -201,6 +276,8 @@ class DataManager:
         t['status'] = "SHIPPED"
         with open(ORDER_FILE, 'w') as f:
             json.dump(orders, f, indent=4)
+        
+        self.record_daily_stock()
         return True
 
     def generate_html_report(self):

@@ -27,7 +27,6 @@ def get_cipher():
                 key = kf.read()
                 if len(key) > 0:
                     return Fernet(key)
-        
         key = Fernet.generate_key()
         with open(KEY_FILE, "wb") as kf:
             kf.write(key)

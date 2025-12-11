@@ -50,4 +50,8 @@
 **💡 Conseil Tactique pour 3 personnes**
 Si vous êtes en retard à la fin de la Semaine 2 :
 Sacrifiez la partie graphique du Module 5 (Stats Visuelles).
+<<<<<<< HEAD
 Mieux vaut une application sécurisée qui affiche les stats en texte simple (dans la console ou un tableau) qu'une application avec de jolis graphiques qui plante ou n'est pas finie.
+=======
+Mieux vaut une application sécurisée qui affiche les stats en texte simple (dans la console ou un tableau) qu'une application avec de jolis graphiques qui plante ou n'est pas finie.
+>>>>>>> main
