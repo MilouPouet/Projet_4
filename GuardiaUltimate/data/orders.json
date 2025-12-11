@@ -1,12 +1,1431 @@
 [
     {
-        "id": "CMD-1765439525",
-        "user": "Trystan",
-        "date": "11/12/2025",
+        "id": "CMD-1762852221-37",
+        "user": "LaraClette",
+        "date": "11/11/2025",
         "status": "SHIPPED",
         "items": [
             {
-                "id": "235679db-77e4-4b6d-a76b-890b13887e59",
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 847.8
+    },
+    {
+        "id": "CMD-1762852221-18",
+        "user": "SarahCroche",
+        "date": "11/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            }
+        ],
+        "total": 458.0
+    },
+    {
+        "id": "CMD-1763025021-80",
+        "user": "NordineAteur",
+        "date": "13/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 24.9
+    },
+    {
+        "id": "CMD-1763025021-30",
+        "user": "PhilDefer",
+        "date": "13/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            }
+        ],
+        "total": 229.0
+    },
+    {
+        "id": "CMD-1763025021-84",
+        "user": "VincentTime",
+        "date": "13/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 399.0
+    },
+    {
+        "id": "CMD-1763025021-91",
+        "user": "AudeJavel",
+        "date": "13/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 45.8
+    },
+    {
+        "id": "CMD-1763111421-13",
+        "user": "NordineAteur",
+        "date": "14/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 24.9
+    },
+    {
+        "id": "CMD-1763111421-46",
+        "user": "GerardMensoif",
+        "date": "14/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            }
+        ],
+        "total": 253.9
+    },
+    {
+        "id": "CMD-1763111421-94",
+        "user": "AlainTerieur",
+        "date": "14/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            }
+        ],
+        "total": 1265.0
+    },
+    {
+        "id": "CMD-1763197821-33",
+        "user": "SandraNicouette",
+        "date": "15/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 1067.0
+    },
+    {
+        "id": "CMD-1763197821-79",
+        "user": "VincentTime",
+        "date": "15/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 857.0
+    },
+    {
+        "id": "CMD-1763284221-13",
+        "user": "PhilDefer",
+        "date": "16/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 278.8
+    },
+    {
+        "id": "CMD-1763284221-51",
+        "user": "SarahCroche",
+        "date": "16/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            }
+        ],
+        "total": 996.0
+    },
+    {
+        "id": "CMD-1763284221-29",
+        "user": "PhilDefer",
+        "date": "16/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 448.8
+    },
+    {
+        "id": "CMD-1763284221-41",
+        "user": "DaisyDrate",
+        "date": "16/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 448.8
+    },
+    {
+        "id": "CMD-1763370621-80",
+        "user": "JeanBonneau",
+        "date": "17/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 368.6
+    },
+    {
+        "id": "CMD-1763370621-78",
+        "user": "JerryGolay",
+        "date": "17/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 45.8
+    },
+    {
+        "id": "CMD-1763370621-93",
+        "user": "AudeJavel",
+        "date": "17/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 692.9
+    },
+    {
+        "id": "CMD-1763543421-56",
+        "user": "GerardMensoif",
+        "date": "19/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 45.8
+    },
+    {
+        "id": "CMD-1763543421-89",
+        "user": "AlainTerieur",
+        "date": "19/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 318.8
+    },
+    {
+        "id": "CMD-1763543421-87",
+        "user": "SandraNicouette",
+        "date": "19/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 45.8
+    },
+    {
+        "id": "CMD-1763543421-53",
+        "user": "EllaDanlos",
+        "date": "19/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            }
+        ],
+        "total": 68.69999999999999
+    },
+    {
+        "id": "CMD-1763716221-32",
+        "user": "DaisyDrate",
+        "date": "21/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 399.0
+    },
+    {
+        "id": "CMD-1763802621-39",
+        "user": "JeanBonneau",
+        "date": "22/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 1381.8
+    },
+    {
+        "id": "CMD-1763802621-59",
+        "user": "AudeJavel",
+        "date": "22/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 448.8
+    },
+    {
+        "id": "CMD-1763802621-95",
+        "user": "SarahCroche",
+        "date": "22/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 24.9
+    },
+    {
+        "id": "CMD-1763802621-66",
+        "user": "PhilDefer",
+        "date": "22/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            }
+        ],
+        "total": 829.9
+    },
+    {
+        "id": "CMD-1763802621-52",
+        "user": "JeanBonneau",
+        "date": "22/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 49.8
+    },
+    {
+        "id": "CMD-1763802621-95",
+        "user": "DaisyDrate",
+        "date": "22/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            }
+        ],
+        "total": 629.6
+    },
+    {
+        "id": "CMD-1763889021-61",
+        "user": "LaraClette",
+        "date": "23/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 47.8
+    },
+    {
+        "id": "CMD-1763889021-97",
+        "user": "LaraClette",
+        "date": "23/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 843.8
+    },
+    {
+        "id": "CMD-1763889021-27",
+        "user": "SarahCroche",
+        "date": "23/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 49.8
+    },
+    {
+        "id": "CMD-1763889021-24",
+        "user": "AlainTerieur",
+        "date": "23/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 318.8
+    },
+    {
+        "id": "CMD-1763889021-53",
+        "user": "JerryGolay",
+        "date": "23/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 314.8
+    },
+    {
+        "id": "CMD-1763889021-21",
+        "user": "AlainTerieur",
+        "date": "23/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 843.8
+    },
+    {
+        "id": "CMD-1763889021-58",
+        "user": "EllaDanlos",
+        "date": "23/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 1197.0
+    },
+    {
+        "id": "CMD-1763975421-94",
+        "user": "PhilDefer",
+        "date": "24/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 727.0
+    },
+    {
+        "id": "CMD-1763975421-54",
+        "user": "SandraNicouette",
+        "date": "24/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 448.8
+    },
+    {
+        "id": "CMD-1763975421-85",
+        "user": "AlainTerieur",
+        "date": "24/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 291.9
+    },
+    {
+        "id": "CMD-1763975421-43",
+        "user": "JeanBonneau",
+        "date": "24/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            }
+        ],
+        "total": 314.8
+    },
+    {
+        "id": "CMD-1764061821-48",
+        "user": "JeanBonneau",
+        "date": "25/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 24.9
+    },
+    {
+        "id": "CMD-1764061821-23",
+        "user": "JerryGolay",
+        "date": "25/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 498.0
+    },
+    {
+        "id": "CMD-1764061821-67",
+        "user": "JeanBonneau",
+        "date": "25/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            }
+        ],
+        "total": 562.9
+    },
+    {
+        "id": "CMD-1764061821-47",
+        "user": "PhilDefer",
+        "date": "25/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 857.0
+    },
+    {
+        "id": "CMD-1764148221-84",
+        "user": "PhilDefer",
+        "date": "26/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 870.7
+    },
+    {
+        "id": "CMD-1764148221-91",
+        "user": "EllaDanlos",
+        "date": "26/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            }
+        ],
+        "total": 687.0
+    },
+    {
+        "id": "CMD-1764234621-67",
+        "user": "AlainTerieur",
+        "date": "27/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            }
+        ],
+        "total": 902.8
+    },
+    {
+        "id": "CMD-1764321021-84",
+        "user": "LaraClette",
+        "date": "28/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            }
+        ],
+        "total": 1336.0
+    },
+    {
+        "id": "CMD-1764407421-23",
+        "user": "EllaDanlos",
+        "date": "29/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 399.0
+    },
+    {
+        "id": "CMD-1764407421-47",
+        "user": "JerryGolay",
+        "date": "29/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 95.6
+    },
+    {
+        "id": "CMD-1764407421-45",
+        "user": "JeanBonneau",
+        "date": "29/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            }
+        ],
+        "total": 278.8
+    },
+    {
+        "id": "CMD-1764407421-83",
+        "user": "SandraNicouette",
+        "date": "29/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            }
+        ],
+        "total": 587.8
+    },
+    {
+        "id": "CMD-1764493821-75",
+        "user": "SarahCroche",
+        "date": "30/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 583.8
+    },
+    {
+        "id": "CMD-1764493821-87",
+        "user": "NordineAteur",
+        "date": "30/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 24.9
+    },
+    {
+        "id": "CMD-1764493821-91",
+        "user": "LaraClette",
+        "date": "30/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 1027.0
+    },
+    {
+        "id": "CMD-1764493821-92",
+        "user": "AlainTerieur",
+        "date": "30/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            }
+        ],
+        "total": 857.0
+    },
+    {
+        "id": "CMD-1764493821-55",
+        "user": "PhilDefer",
+        "date": "30/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            }
+        ],
+        "total": 22.9
+    },
+    {
+        "id": "CMD-1764493821-89",
+        "user": "PhilDefer",
+        "date": "30/11/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 507.8
+    },
+    {
+        "id": "CMD-1764666621-22",
+        "user": "SandraNicouette",
+        "date": "02/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 24.9
+    },
+    {
+        "id": "CMD-1764666621-52",
+        "user": "EllaDanlos",
+        "date": "02/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 843.8
+    },
+    {
+        "id": "CMD-1764666621-52",
+        "user": "SandraNicouette",
+        "date": "02/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 843.8
+    },
+    {
+        "id": "CMD-1764666621-66",
+        "user": "NordineAteur",
+        "date": "02/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 798.0
+    },
+    {
+        "id": "CMD-1764753021-47",
+        "user": "DaisyDrate",
+        "date": "03/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 95.6
+    },
+    {
+        "id": "CMD-1764753021-32",
+        "user": "AlainTerieur",
+        "date": "03/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 95.6
+    },
+    {
+        "id": "CMD-1764753021-82",
+        "user": "AudeJavel",
+        "date": "03/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 553.6
+    },
+    {
+        "id": "CMD-1764839421-49",
+        "user": "GerardMensoif",
+        "date": "04/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            }
+        ],
+        "total": 906.8
+    },
+    {
+        "id": "CMD-1764839421-77",
+        "user": "SandraNicouette",
+        "date": "04/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 1280.9
+    },
+    {
+        "id": "CMD-1764839421-12",
+        "user": "PhilDefer",
+        "date": "04/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
                 "nom": "Wanhao Duplicator 12/230 (Dual)",
                 "qty": 1,
                 "price": 269.0
@@ -15,18 +1434,423 @@
         "total": 269.0
     },
     {
-        "id": "CMD-1765439537",
-        "user": "Trystan",
-        "date": "11/12/2025",
+        "id": "CMD-1764925821-16",
+        "user": "DaisyDrate",
+        "date": "05/12/2025",
         "status": "SHIPPED",
         "items": [
             {
-                "id": "3686a937-85ee-4c2f-a08d-4e7a884c63a5",
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 587.8
+    },
+    {
+        "id": "CMD-1765012221-17",
+        "user": "JerryGolay",
+        "date": "06/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            }
+        ],
+        "total": 399.0
+    },
+    {
+        "id": "CMD-1765012221-47",
+        "user": "TheoPhile",
+        "date": "06/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
                 "nom": "Filament PETG Noir",
                 "qty": 2,
                 "price": 24.9
             }
         ],
         "total": 49.8
+    },
+    {
+        "id": "CMD-1765012221-19",
+        "user": "NordineAteur",
+        "date": "06/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 45.8
+    },
+    {
+        "id": "CMD-1765012221-41",
+        "user": "AudeJavel",
+        "date": "06/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 893.6
+    },
+    {
+        "id": "CMD-1765098621-17",
+        "user": "AlainTerieur",
+        "date": "07/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 798.0
+    },
+    {
+        "id": "CMD-1765098621-80",
+        "user": "LaraClette",
+        "date": "07/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 318.8
+    },
+    {
+        "id": "CMD-1765098621-47",
+        "user": "JerryGolay",
+        "date": "07/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 1794.0
+    },
+    {
+        "id": "CMD-1765098621-21",
+        "user": "JerryGolay",
+        "date": "07/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 1,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            }
+        ],
+        "total": 628.0
+    },
+    {
+        "id": "CMD-1765098621-36",
+        "user": "AlainTerieur",
+        "date": "07/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            }
+        ],
+        "total": 47.8
+    },
+    {
+        "id": "CMD-1765185021-47",
+        "user": "GerardMensoif",
+        "date": "08/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            }
+        ],
+        "total": 767.0
+    },
+    {
+        "id": "CMD-1765185021-84",
+        "user": "PhilDefer",
+        "date": "08/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            }
+        ],
+        "total": 229.0
+    },
+    {
+        "id": "CMD-1765185021-77",
+        "user": "SarahCroche",
+        "date": "08/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            }
+        ],
+        "total": 1076.8
+    },
+    {
+        "id": "CMD-1765357821-65",
+        "user": "LaraClette",
+        "date": "10/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 2,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            }
+        ],
+        "total": 507.8
+    },
+    {
+        "id": "CMD-1765357821-61",
+        "user": "LaraClette",
+        "date": "10/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 1,
+                "price": 269.0
+            }
+        ],
+        "total": 727.0
+    },
+    {
+        "id": "CMD-1765357821-46",
+        "user": "EllaDanlos",
+        "date": "10/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 1,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 1618.9
+    },
+    {
+        "id": "CMD-1765444221-10",
+        "user": "AudeJavel",
+        "date": "11/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            }
+        ],
+        "total": 458.0
+    },
+    {
+        "id": "CMD-1765444221-82",
+        "user": "GerardMensoif",
+        "date": "11/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PETG Noir",
+                "qty": 1,
+                "price": 24.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            }
+        ],
+        "total": 482.9
+    },
+    {
+        "id": "CMD-1765444221-68",
+        "user": "DaisyDrate",
+        "date": "11/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 2,
+                "price": 229.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao D12/300 Pro Max",
+                "qty": 2,
+                "price": 399.0
+            }
+        ],
+        "total": 1301.8
+    },
+    {
+        "id": "CMD-1765444221-58",
+        "user": "AlainTerieur",
+        "date": "11/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            },
+            {
+                "id": "fictif_hist",
+                "nom": "Wanhao Duplicator 12/230 (Dual)",
+                "qty": 2,
+                "price": 269.0
+            }
+        ],
+        "total": 1076.0
     }
 ]

@@ -1,17 +1,4 @@
 id,nom,prix,quantite,categorie,secret_info
-<<<<<<< HEAD
-1765188795,Wanhao Duplicator 12/230 (D12 Mono),229.0,15,Imprimante FDM,gAAAAABpNqS7Jp8_iwtu-b2MMPTbq8-iAlm6X5Bv1P-HioTfj6WMaM0KP_rsgGffN4PTccQKcBzngjWlxGjHHEmAdh1XhEC9MDFkeQMFGNXQ4QPy6mrBromuqBNMAf5j6NBP8nlDbeTm
-1765188795,Wanhao Duplicator 12/230 (D12 Dual),256.8,8,Imprimante FDM,gAAAAABpNqS7R6ygN0NhbhQIqt5XTCq68jhlLhYPOAminQDlyb_iGJjZ1SzAMEIyV2neMvyZ7JzZddtN-k4JIqcDNSKu8wiCfWqCa8dnZxZMWkoGYpfmfXx5R6mB4ApzaZo8TsHjYYv5
-1765188795,Wanhao Duplicator 12/300 Pro Max,399.0,5,Imprimante FDM,gAAAAABpNqS7vK9QvY6bJuYuXidbvgjRoxTpwaMPAGFPfjfkJe4wjTh96vY0oJtdGPnYl3J7eqVpqopKye2p5Q-q8pZyCWeFeHmBXUEnp2l2HkRHomYwKvw=
-1765188795,Wanhao Duplicator 12/500 (Géante),549.9,2,Imprimante FDM,gAAAAABpNqS7VvhRNnRTQ9crP35h7MOizHfI6zUSrO7OFmRSCiwLQTMgHDXE3yq0AcZsLNhqDKsG0hJMa-tr05xRMR26E_DbXUanApNLD8XxYbatwU_kqRgFh_3vEGPuAxKSItaW7rL7
-1765188795,Wanhao GR2 (Gadoso Revolution 2),299.0,4,Imprimante FDM,gAAAAABpNqS7fzSIbq_bz5I7MNWq3ifqZgBtZfgIhe_it5PepkLZGIIGADx8qR2Giy71xrHr7yD9vR_b7rLy7EZPYDjwGB7078vv3uhSMuoU3iTEQjVE_JFZQIu5gMPuvwsO-1gZ5ogb
-1765188795,Wanhao Duplicator D8 (Résine UV),450.0,3,Imprimante Résine,gAAAAABpNqS7X_HehQJDCYVdWV7x1Kf1lbre7OL1yn_UuVgcoeG9nVMQgoR2oNW5yqRdYVhDY5yA_bxMhB_JmJOTUC8qqD5NVumVxGrn8sIoTt51MPsYfNg=
-1765188795,Filament PLA Wanhao 1.75mm Blanc,24.9,120,Filament,gAAAAABpNqS7MMvbc1ECiurGqdFFZJS78xMWKNlPh1jVxve0sPlrP7hNAjqjedUK0ZPcwhUak5IVTttHdf2cF6TEz9kUlwKFTNwcaaMpmH9pXvdw_fdFOp0=
-1765188795,Filament PLA Wanhao 1.75mm Noir,24.9,95,Filament,gAAAAABpNqS7KEP1eCuYHw7Oi3mh2ookLkZs4y-I5u3JN1GxwxsaItuoAbrMKakRJlHliojsACZTK1WFJNAQ30vtzPJyhl1kGb5ITjysxvgkiz87Md4qFak=
-1765188795,Résine Wanhao Standard Grise 1L,35.0,30,Résine,gAAAAABpNqS7Q5FpZ_3NVQPNq7dR2bKY0ZJJmKezHXAVY-vh6rrztvNjIRMAplMY9kmgmmcgpfCTxts9LeX7No2n8sGGF-uGs8RDPYIi3869aHKL5jADOuw=
-1765188795,Kit Upgrade Dual Extruder D12,39.9,12,Accessoire,gAAAAABpNqS7LWJFsaAK0065LfQ8phWNLGusafo6UdaaBJmCsoEf7RjyRUEemgRwVey3A07ISoe2Ojmboxvhvb68EeyoE_eiP3GQzo--ZwI-4CyQG5GVh1U=
-1765188795,Plateau Magnétique PEI 230mm,29.0,25,Accessoire,gAAAAABpNqS7BvCKOhSnVvk4kW7BKpzageO8VcPkRbl_BSvqnHFmlfpkam3qJ8B20c_ZM21rKtmk1_D_Nx-32g4o3uiZ-qAvzqV8C7Ydgv8bu-eMVopsRA4=
-=======
 e2bffee3-f2c1-4f17-9df0-15b54bfd0e04,Wanhao Duplicator 12/230 (Mono),229.0,12,Imprimante FDM,gAAAAABpOniFdaM6egRgHwSxJHUs7lyNx2kscnI013YIXnpj5Kg0_VrsDFhTlM1huJcSFdoj8x_GhzYtw43q6bO1PNuFoXEt0g==
 235679db-77e4-4b6d-a76b-890b13887e59,Wanhao Duplicator 12/230 (Dual),269.0,7,Imprimante FDM,gAAAAABpOniFRAYz2VlZI-mx_NuJaYPRGIeHaG5UqVTgJS8RF0TDVXkNPKKKIyYbp1PpKWIvO2Y6O0FD8JTbZdS6nYApDiuZAQ==
 6c7e1c8d-585a-40a8-b8a9-b219599de0ed,Wanhao D12/300 Pro Max,399.0,5,Imprimante FDM,gAAAAABpOniF5dX3T7ijUmzLY_q4HzTYjZS08Tcyg_Eer7dQ30aGyVdqp8Y64gvkVdTHxSoWOxCOfLIC2KzNC2oHHUuOBgX_3w==
@@ -23,4 +10,3 @@ e2bffee3-f2c1-4f17-9df0-15b54bfd0e04,Wanhao Duplicator 12/230 (Mono),229.0,12,Im
 3686a937-85ee-4c2f-a08d-4e7a884c63a5,Filament PETG Noir,24.9,38,Consommable,gAAAAABpOniFnFMaS0PLmgeG1F7jYFWkyy6DKux6lcUlS1XXvPpyb5ChyGV0mnPvBEit3kXyUXzMK5IwnV51vLR5Alecfl5lNA==
 ab5747b1-4a51-4da0-b2aa-783cf2de1cea,Plateau Magnétique PEI 235,29.9,20,Accessoire,gAAAAABpOniF0abu-kxfzNKFbv_oGC8MLZN7-Rs57sw7IoZrHlDqi8G5ih4C9FMBPDcvGeO5MKYugMXPFoZq6wV6mIOk0a8lhA==
 344f8c21-1b73-4a71-918e-413b742b98ec,Kit Buse Laiton 0.4mm (x5),9.9,100,Pièce Détachée,gAAAAABpOniFD-S8fzhIx62YfvqPh4tqFzwB-qszm6l8qbmIxJudOSKhTjul3PSvjR0PQskiwsII5nTmqm7khBB-C_PDtQEfPA==
->>>>>>> main
