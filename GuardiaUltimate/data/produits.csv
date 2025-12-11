@@ -1,12 +1,12 @@
 id,nom,prix,quantite,categorie,secret_info
-e2bffee3-f2c1-4f17-9df0-15b54bfd0e04,Wanhao Duplicator 12/230 (Mono),229.0,12,Imprimante FDM,gAAAAABpOniFdaM6egRgHwSxJHUs7lyNx2kscnI013YIXnpj5Kg0_VrsDFhTlM1huJcSFdoj8x_GhzYtw43q6bO1PNuFoXEt0g==
-235679db-77e4-4b6d-a76b-890b13887e59,Wanhao Duplicator 12/230 (Dual),269.0,7,Imprimante FDM,gAAAAABpOniFRAYz2VlZI-mx_NuJaYPRGIeHaG5UqVTgJS8RF0TDVXkNPKKKIyYbp1PpKWIvO2Y6O0FD8JTbZdS6nYApDiuZAQ==
-6c7e1c8d-585a-40a8-b8a9-b219599de0ed,Wanhao D12/300 Pro Max,399.0,5,Imprimante FDM,gAAAAABpOniF5dX3T7ijUmzLY_q4HzTYjZS08Tcyg_Eer7dQ30aGyVdqp8Y64gvkVdTHxSoWOxCOfLIC2KzNC2oHHUuOBgX_3w==
-2892a63f-ce56-45b0-a125-c64279317ee3,Wanhao D12/500 (Grand Format),549.0,2,Imprimante FDM,gAAAAABpOniF6WHLuFFU_6_O1gfMskNj7I4kvlieXPpvQ3YnQmeIugg_gz0rkeV98GOld6EuvqAFiXzg7VdfhU0e3ASKpUGjXA==
-566a7f1c-700b-4a5a-a0fe-0cf67867ff69,Wanhao GR2 (Gadoso),299.0,15,Imprimante FDM,gAAAAABpOniFS-SXB9RQdK5rH3OPIkrinJ-NCZKDj1Ah0reqzREXYfC2rRrJCBexNRwWwnrlEU0rhSf7pMFHRt86_SSxXIOIiw==
-6fa68ee4-717b-4b89-a425-b24e23c1c24e,Wanhao D8 (Résine UV),450.0,3,Imprimante Résine,gAAAAABpOniFnnssVAGY2c4HLaXolwtdaPAEO_RBdryVWvPHxBc0ypPAyKdm9jazBBV07a177kcEGNGbD82IwbXLjtzZj00O_6zVLp_FT5kwiUGU6bC2tCQ=
-7246a1f9-8ef7-46a8-8d17-ed571e925d21,Filament PLA+ Blanc 1kg,22.9,50,Consommable,gAAAAABpOniFeixx6tA0kwrwSIf-zonxB_MFteGwlIxUqvnCpTuG3BYqHoGx2jMhj9V-7yM2euM6cfPcEFvYWP9FOGsqz_5Fzw==
-12e2766c-5a1f-488b-bb03-fa2a941942d0,Filament PLA Soie Or,26.9,30,Consommable,gAAAAABpOniFbWvMaY0S0yfMH_ceouhvG0bzw2bZDr9l_QrkcbuVafFjn_J_uUIznpah8raXQPpxW-SnE170HW6QBx3-q6PJvQ==
-3686a937-85ee-4c2f-a08d-4e7a884c63a5,Filament PETG Noir,24.9,38,Consommable,gAAAAABpOniFnFMaS0PLmgeG1F7jYFWkyy6DKux6lcUlS1XXvPpyb5ChyGV0mnPvBEit3kXyUXzMK5IwnV51vLR5Alecfl5lNA==
-ab5747b1-4a51-4da0-b2aa-783cf2de1cea,Plateau Magnétique PEI 235,29.9,20,Accessoire,gAAAAABpOniF0abu-kxfzNKFbv_oGC8MLZN7-Rs57sw7IoZrHlDqi8G5ih4C9FMBPDcvGeO5MKYugMXPFoZq6wV6mIOk0a8lhA==
-344f8c21-1b73-4a71-918e-413b742b98ec,Kit Buse Laiton 0.4mm (x5),9.9,100,Pièce Détachée,gAAAAABpOniFD-S8fzhIx62YfvqPh4tqFzwB-qszm6l8qbmIxJudOSKhTjul3PSvjR0PQskiwsII5nTmqm7khBB-C_PDtQEfPA==
+e2bffee3-f2c1-4f17-9df0-15b54bfd0e04,Wanhao Duplicator 12/230 (Mono),229.0,12,Imprimante FDM,gAAAAABpOpGCxPB1ZbBt8aYT_fLDK84jnApulsMSr28HHY60j6NMtS_xxLKUaEg-yg3ZvbwoHvb3TI-gtj8ITlQ5-nR48J9nrA==
+235679db-77e4-4b6d-a76b-890b13887e59,Wanhao Duplicator 12/230 (Dual),269.0,7,Imprimante FDM,gAAAAABpOpGC6Rl7tj_aQn0PENsPPVLuvyjVhNkBGGYKM5IGZLs3ZAEVkFUPOizAXWKqgRwZPJ0gmgabmBPeWZ0DvOVT5JLFNQ==
+6c7e1c8d-585a-40a8-b8a9-b219599de0ed,Wanhao D12/300 Pro Max,399.0,5,Imprimante FDM,gAAAAABpOpGCP-U6UVi699-SntHm-xyF3e0kYV4hyr6qx-3BiLt7w8nwbSNkX1JolzzcX5jJ7fbj61cZlabqcL1Takpz6_tHCQ==
+2892a63f-ce56-45b0-a125-c64279317ee3,Wanhao D12/500 (Grand Format),549.0,2,Imprimante FDM,gAAAAABpOpGCyY0QeM_ew7VNku8bB9qoqzGYEtGWYkdmF8OnKmDPhBmydzlXbkl9LQYhtV1ObGmsGBB-xxfoe2hqTOxQoerd0Q==
+566a7f1c-700b-4a5a-a0fe-0cf67867ff69,Wanhao GR2 (Gadoso),299.0,15,Imprimante FDM,gAAAAABpOpGCTpOLkvoPrelHXwEG2AIyKc3KpcapbtGb2c2o8I1dGX0UE-e-thF0YHnpD19drayqr7w_Qh-Cmfpmk0FZkGxaPQ==
+6fa68ee4-717b-4b89-a425-b24e23c1c24e,Wanhao D8 (Résine UV),450.0,3,Imprimante Résine,gAAAAABpOpGCQuK5sG7ckzZMG9GBBh_ouOvKrm8x6dQt8-dMoP7v_PPeHa965B-jGaJ8uvYEtogj1KYzrC4U5WGy7W4jIBZy78BFca7ttojInzFW6o-aicE=
+7246a1f9-8ef7-46a8-8d17-ed571e925d21,Filament PLA+ Blanc 1kg,22.9,50,Consommable,gAAAAABpOpGCUrKEcBUKyT-fQU0L7q1f85Qg8I30wbUbiotR5-xkatoFKoopjNm_pXc8Jn9Af-lvR15TS_Ih-43g85tNt9DlCQ==
+12e2766c-5a1f-488b-bb03-fa2a941942d0,Filament PLA Soie Or,26.9,30,Consommable,gAAAAABpOpGCNDTFAAUGq7QU6d4gw-mgRTYPe-59JVzKqS2l8QWbH4EUUMCBGpIfGbGRmblsf9u6GWtxb3z_p_WoZ52iak_SiQ==
+3686a937-85ee-4c2f-a08d-4e7a884c63a5,Filament PETG Noir,24.9,38,Consommable,gAAAAABpOpGCmE1NbQmN6v7-iZskedZrxyx89P_Pleiw8eto1KokjV-R-_XWnS1TuQVr5UHdJdYmG9G7Y_7PnwzmET0kxCN9CA==
+ab5747b1-4a51-4da0-b2aa-783cf2de1cea,Plateau Magnétique PEI 235,29.9,20,Accessoire,gAAAAABpOpGCuiizCunpRPnScU_ln0Tsg_cQQT3en4nPHQk2LLs-gCGhiVUEJxrHz9c0XosrQilS4_Z-z3U8iuWb_mwXOA6WoA==
+344f8c21-1b73-4a71-918e-413b742b98ec,Kit Buse Laiton 0.4mm (x5),9.9,100,Pièce Détachée,gAAAAABpOpGCR1fxCKClg7rd7KZ1IspA8gabVVYISfQkxcJb5iJKHU3fsL7YvF49XnvQ6zbglMV147qK1e0n9OHPMZcwolZt9g==
