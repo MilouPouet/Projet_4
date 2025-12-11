@@ -9,6 +9,7 @@
         "role": "client",
         "2fa_secret": "NNB4IFELSGKDEKORWDX7KZDQJE5A426S"
     },
+<<<<<<< HEAD
     "LaraClette": {
         "hash": "8097a925f0ce895c8a43f8a323a7a4603366b741315c7ad3ee5f05be5d5fd7f2:cb36b30e55361c7ea30bd36ce8bc79e8fb79ec9e99404326b8b8c1bc1c0dbdec",
         "role": "client",
@@ -78,5 +79,11 @@
         "hash": "318d7c7aefc2fdb6b7cde3599805df6574297202188591a0735687eb26fd56bf:973bd0d8e4cf383bc95c93bc9e1d51879d0b8831414fe5d31fc27c484d195c35",
         "role": "client",
         "2fa_secret": null
+=======
+    "milou": {
+        "hash": "92c3a69a4a7651a46b61e040026dd2b43edb77de216bcf23cfaf86352778b532:930238618109b74e920dd4c410c2cae4cdae4b237430da0626682c500fe6013f",
+        "role": "admin",
+        "2fa_secret": "WJ2LMD3SRWMVT4VWEELCSR64WWS37A77"
+>>>>>>> 57f284d290affb339292aa131433d7ceab924537
     }
 }
