@@ -204,13 +204,11 @@ class DataManager:
         self.create_backup()
         rows = self.get_all_products()
         updated = False
-        
         for r in rows:
             if r['id'] == product_id:
                 r.update(new_data)
                 updated = True
                 break
-        
         if updated:
             with open(DATA_FILE, 'w', newline='', encoding='utf-8') as f:
                 w = csv.DictWriter(f, fieldnames=["id","nom","prix","quantite","categorie","secret_info"])
@@ -227,7 +225,6 @@ class DataManager:
         self.create_backup()
         rows = self.get_all_products()
         updated = False
-        
         for r in rows:
             if r['id'] == product_id:
                 try:
@@ -237,7 +234,6 @@ class DataManager:
                     updated = True
                 except: pass
                 break
-        
         if updated:
             with open(DATA_FILE, 'w', newline='', encoding='utf-8') as f:
                 w = csv.DictWriter(f, fieldnames=["id","nom","prix","quantite","categorie","secret_info"])
