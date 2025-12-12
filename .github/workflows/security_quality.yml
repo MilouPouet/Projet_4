@@ -33,7 +33,7 @@ jobs:
 
         with:
           organization: miloupouetpouet # VOTRE organisation SonarCloud
-          projectKey: miloupouetpouet_Projet_4 # VOTRE clé de projet SonarCloud (doit correspondre au fichier .properties)
+          projectKey: MilouPouet_Projet_4 # VOTRE clé de projet SonarCloud (doit correspondre au fichier .properties)
 
   # JOB 2: SÉCURITÉ DYNAMIQUE (OWASP ZAP)
   zap_scan:
