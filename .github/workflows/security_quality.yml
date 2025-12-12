@@ -7,6 +7,11 @@ on:
   pull_request:
     branches: [ "main" ] # Déclenché lorsqu'une Pull Request cible la branche 'main'
 
+# CORRECTION CRITIQUE ZAP : Ajout des permissions pour la création des Issues (tickets)
+permissions:
+  contents: read
+  issues: write # ESSENTIEL pour éviter l'erreur 403 lors de la publication ZAP
+
 jobs:
   # JOB 1: QUALITÉ DU CODE (SonarCloud)
   sonarcloud_scan:
