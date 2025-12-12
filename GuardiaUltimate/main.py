@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
     QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, 
     QMessageBox, QHeaderView, QStackedWidget, QListWidget, QFrame,
-    QProgressBar, QCheckBox, QAbstractItemView, QDialog, QSpinBox, QInputDialog, QScrollArea
+    QProgressBar, QCheckBox, QAbstractItemView, QDialog, QSpinBox, QInputDialog, QScrollArea, QSpacerItem, QSizePolicy
 )
 from PyQt5.QtGui import QPixmap, QColor, QFont, QPalette
 from PyQt5.QtCore import Qt, QTimer
@@ -25,6 +25,8 @@ STYLESHEET = """
     QLineEdit:focus { border: 2px solid #3498db; }
     QPushButton { background-color: #3498db; color: white; border-radius: 6px; padding: 12px; font-weight: bold; font-size: 14px; border: none; }
     QPushButton:hover { background-color: #5dade2; }
+    QPushButton.btn-danger { background-color: #e74c3c; color: white; }
+    QPushButton.btn-danger:hover { background-color: #c0392b; }
     QPushButton#BtnOutline { background-color: transparent; border: 2px solid #3498db; color: #3498db; }
     QPushButton#BtnOutline:hover { background-color: rgba(52, 152, 219, 0.1); }
     QCheckBox { color: #ffffff; spacing: 10px; font-size: 15px; font-weight: bold; background: transparent; }
@@ -39,7 +41,6 @@ STYLESHEET = """
     QPushButton.tab-btn { padding: 5px; font-size: 12px; min-width: 30px; margin: 2px; }
 """
 
-# --- DIALOGUES ---
 class OrderDialog(QDialog):
     def __init__(self, product, max_qty, parent=None):
         super().__init__(parent)
@@ -75,75 +76,37 @@ class ProductEditDialog(QDialog):
         self.setWindowTitle("Modifier Produit")
         self.setFixedSize(400, 350)
         l = QVBoxLayout(self)
-        
         self.n = QLineEdit(p['nom'])
         self.p = QLineEdit(str(p['prix']))
         self.c = QLineEdit(p['categorie'])
         self.s = QLineEdit(p.get('secret_info', ''))
-        
         l.addWidget(QLabel("Nom:")); l.addWidget(self.n)
         l.addWidget(QLabel("Prix:")); l.addWidget(self.p)
         l.addWidget(QLabel("Catégorie:")); l.addWidget(self.c)
         l.addWidget(QLabel("Info Secrète:")); l.addWidget(self.s)
-        
         btn = QPushButton("ENREGISTRER"); btn.clicked.connect(self.accept)
         l.addWidget(btn)
-    
     def get_data(self):
-        return {
-            "nom": self.n.text(),
-            "prix": float(self.p.text()) if self.p.text() else 0.0,
-            "categorie": self.c.text(),
-            "secret_info": self.s.text()
-        }
-
-# --- LOGIN & 2FA WIDGETS ---
-class TwoFactorDialog(QDialog):
-    def __init__(self, username, secret, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("Sécurité 2FA"); self.setFixedSize(400, 600)
-        self.secret = secret; layout = QVBoxLayout(self); layout.setSpacing(15)
-        lbl = QLabel("🔐 ACTIVATION 2FA"); lbl.setStyleSheet("font-size: 18px; font-weight: bold; color: #3498db;")
-        lbl.setAlignment(Qt.AlignCenter)
-        uri = SecurityService.get_totp_uri(username, secret)
-        qr = qrcode.QRCode(box_size=10, border=2); qr.add_data(uri); qr.make(fit=True)
-        img = qr.make_image(fill_color="black", back_color="white")
-        temp = "temp_qr.png"; img.save(temp); qimg = QPixmap(temp); 
-        lbl_img = QLabel(); lbl_img.setPixmap(qimg.scaled(200, 200, Qt.KeepAspectRatio)); lbl_img.setAlignment(Qt.AlignCenter)
-        if os.path.exists(temp): os.remove(temp)
-        
-        self.code = QLineEdit(); self.code.setPlaceholderText("Code 6 chiffres"); self.code.setAlignment(Qt.AlignCenter)
-        btn = QPushButton("VÉRIFIER"); btn.clicked.connect(self.check)
-        
-        layout.addWidget(lbl); layout.addWidget(lbl_img)
-        layout.addWidget(QLabel("Clé manuelle :")); layout.addWidget(QLineEdit(secret))
-        layout.addWidget(self.code); layout.addWidget(btn)
-
-    def check(self):
-        if SecurityService.verify_2fa_code(self.secret, self.code.text()): self.accept()
-        else: QMessageBox.warning(self, "Erreur", "Code incorrect.")
+        return {"nom": self.n.text(), "prix": float(self.p.text()) if self.p.text() else 0.0, "categorie": self.c.text(), "secret_info": self.s.text()}
 
 class LoginWidget(QWidget):
     def __init__(self, parent_controller):
         super().__init__()
-        self.parent_controller = parent_controller; self.db = DataManager()
+        self.parent_controller = parent_controller
+        self.db = DataManager()
         l = QVBoxLayout(self); l.setAlignment(Qt.AlignCenter)
         frame = QFrame(); frame.setFixedSize(380, 580)
         frame.setStyleSheet("background-color: #181825; border-radius: 20px; border: 2px solid #313244;")
         fl = QVBoxLayout(frame); fl.setSpacing(20); fl.setContentsMargins(40,40,40,40)
-        
         title = QLabel("GUARDIA ACCESS"); title.setAlignment(Qt.AlignCenter)
-        title.setStyleSheet("font-size: 26px; font-weight: bold; color: #3498db;")
-        
+        title.setStyleSheet("font-size: 26px; font-weight: bold; color: #3498db; background: transparent;")
         self.u = QLineEdit(); self.u.setPlaceholderText("Nom d'utilisateur")
         self.p = QLineEdit(); self.p.setPlaceholderText("Mot de passe"); self.p.setEchoMode(QLineEdit.Password)
         self.chk = QCheckBox(" Compte Administrateur")
-        
         btn_log = QPushButton("SE CONNECTER"); btn_log.clicked.connect(self.login)
         btn_reg = QPushButton("CRÉER UN COMPTE"); btn_reg.setObjectName("BtnOutline"); btn_reg.clicked.connect(self.register)
-        
-        fl.addWidget(title); fl.addWidget(self.u); fl.addWidget(self.p); fl.addWidget(self.chk)
-        fl.addWidget(btn_log); fl.addWidget(btn_reg)
+        fl.addWidget(title); fl.addSpacing(10); fl.addWidget(self.u); fl.addWidget(self.p); fl.addWidget(self.chk)
+        fl.addSpacing(20); fl.addWidget(btn_log); fl.addWidget(btn_reg)
         l.addWidget(frame)
 
     def register(self):
@@ -152,7 +115,7 @@ class LoginWidget(QWidget):
         if SecurityService.is_password_pwned(p): QMessageBox.warning(self, "Danger", "Mot de passe compromis !"); return
         role = "admin" if self.chk.isChecked() else "client"
         self.db.register_user(u, {"hash": SecurityService.hash_password(p), "role": role, "2fa_secret": None})
-        QMessageBox.information(self, "Succès", f"Compte {role} créé.")
+        QMessageBox.information(self, "Succès", f"Compte {role} créé avec succès.")
 
     def login(self):
         u, p = self.u.text(), self.p.text()
@@ -161,9 +124,9 @@ class LoginWidget(QWidget):
             role = d.get('role', 'client')
             if not d.get('2fa_secret'):
                 s = SecurityService.generate_2fa_secret()
-                self.parent_controller.show_2fa_setup(u, role, s)
+                QTimer.singleShot(10, lambda: self.parent_controller.show_2fa_setup(u, role, s))
             else:
-                self.parent_controller.show_2fa_verify(u, role, d['2fa_secret'])
+                QTimer.singleShot(10, lambda: self.parent_controller.show_2fa_verify(u, role, d['2fa_secret']))
         else: QMessageBox.warning(self, "Erreur", "Identifiants incorrects")
 
 class Setup2FAWidget(QWidget):
@@ -171,26 +134,23 @@ class Setup2FAWidget(QWidget):
         super().__init__()
         self.parent_controller = parent_controller
         self.username = username; self.role = role; self.secret = secret; self.db = DataManager()
-        
         l = QVBoxLayout(self); l.setAlignment(Qt.AlignCenter)
         frame = QFrame(); frame.setFixedSize(400, 650)
         frame.setStyleSheet("background-color: #181825; border-radius: 20px; border: 2px solid #313244;")
         fl = QVBoxLayout(frame); fl.setSpacing(15); fl.setContentsMargins(30,30,30,30)
-        
-        lbl = QLabel("🔐 CONFIGURATION 2FA"); lbl.setStyleSheet("font-size: 18px; font-weight: bold; color: #3498db;")
+        lbl = QLabel("🔐 CONFIGURATION 2FA"); lbl.setStyleSheet("font-size: 18px; font-weight: bold; color: #3498db; background: transparent;")
         lbl.setAlignment(Qt.AlignCenter)
-        
         uri = SecurityService.get_totp_uri(username, secret)
         qr = qrcode.QRCode(box_size=10, border=2); qr.add_data(uri); qr.make(fit=True)
         img = qr.make_image(fill_color="black", back_color="white")
         temp = "temp_qr.png"; img.save(temp); qimg = QPixmap(temp)
         lbl_img = QLabel(); lbl_img.setPixmap(qimg.scaled(200, 200, Qt.KeepAspectRatio)); lbl_img.setAlignment(Qt.AlignCenter)
         if os.path.exists(temp): os.remove(temp)
-        
+        key_input = QLineEdit(secret); key_input.setReadOnly(True); key_input.setAlignment(Qt.AlignCenter)
         self.code = QLineEdit(); self.code.setPlaceholderText("Code 6 chiffres"); self.code.setAlignment(Qt.AlignCenter)
+        self.code.setStyleSheet("font-size: 18px; padding: 10px;")
         btn = QPushButton("VALIDER"); btn.clicked.connect(self.check)
-        
-        fl.addWidget(lbl); fl.addWidget(lbl_img); fl.addWidget(QLabel("Clé manuelle :")); fl.addWidget(QLineEdit(secret))
+        fl.addWidget(lbl); fl.addWidget(lbl_img); fl.addWidget(QLabel("Clé manuelle :")); fl.addWidget(key_input)
         fl.addWidget(self.code); fl.addWidget(btn)
         l.addWidget(frame)
 
@@ -205,16 +165,14 @@ class Verify2FAWidget(QWidget):
         super().__init__()
         self.parent_controller = parent_controller
         self.username = username; self.role = role; self.secret = secret
-        
         l = QVBoxLayout(self); l.setAlignment(Qt.AlignCenter)
         frame = QFrame(); frame.setFixedSize(350, 350)
         frame.setStyleSheet("background-color: #181825; border-radius: 20px; border: 2px solid #313244;")
         fl = QVBoxLayout(frame); fl.setSpacing(20); fl.setContentsMargins(40,40,40,40)
-        
-        lbl = QLabel("VÉRIFICATION 2FA"); lbl.setAlignment(Qt.AlignCenter); lbl.setStyleSheet("font-size: 20px; font-weight: bold;")
+        lbl = QLabel("VÉRIFICATION 2FA"); lbl.setAlignment(Qt.AlignCenter); lbl.setStyleSheet("font-size: 20px; font-weight: bold; background: transparent;")
         self.code = QLineEdit(); self.code.setPlaceholderText("Code Authenticator"); self.code.setAlignment(Qt.AlignCenter)
+        self.code.setStyleSheet("font-size: 20px; padding: 10px;")
         btn = QPushButton("ENTRER"); btn.clicked.connect(self.check)
-        
         fl.addWidget(lbl); fl.addWidget(self.code); fl.addWidget(btn)
         l.addWidget(frame)
 
@@ -222,31 +180,43 @@ class Verify2FAWidget(QWidget):
         if SecurityService.verify_2fa_code(self.secret, self.code.text()): self.parent_controller.show_app(self.username, self.role)
         else: QMessageBox.warning(self, "Erreur", "Code incorrect.")
 
-# --- APP WIDGET ---
 class AppWidget(QWidget):
     def __init__(self, username, role, logout_callback):
         super().__init__()
         self.username = username; self.role = role; self.logout = logout_callback
         self.db = DataManager()
-        
         layout = QHBoxLayout(self); layout.setContentsMargins(0,0,0,0); layout.setSpacing(0)
-        self.sidebar = QListWidget(); self.sidebar.setFixedWidth(240)
-        if role == "admin": self.sidebar.addItems(["📊 Tableau de Bord", "📦 Gestion Stock", "🚚 Commandes", "👥 Utilisateurs", "🚪 Déconnexion"])
-        else: self.sidebar.addItems(["🛍️ Catalogue", "🛒 Mes Commandes", "⚙️ Mon Compte", "🚪 Déconnexion"])
-        self.sidebar.currentRowChanged.connect(self.nav)
-        
+        sidebar_container = QWidget()
+        sidebar_container.setFixedWidth(240)
+        sidebar_container.setStyleSheet("background-color: #181825; border-right: 1px solid #45475a;")
+        sidebar_layout = QVBoxLayout(sidebar_container)
+        sidebar_layout.setContentsMargins(10, 20, 10, 20)
+        sidebar_layout.setSpacing(10)
+        self.nav_list = QListWidget()
+        self.nav_list.setStyleSheet("border: none;")
+        if role == "admin": self.nav_list.addItems(["📊 Tableau de Bord", "📦 Gestion Stock", "🚚 Commandes", "👥 Utilisateurs"])
+        else: self.nav_list.addItems(["🛍️ Catalogue", "🛒 Mes Commandes", "⚙️ Mon Compte"])
+        self.nav_list.currentRowChanged.connect(self.switch_page)
+        btn_logout = QPushButton("🚪 DÉCONNEXION")
+        btn_logout.setProperty("class", "btn-danger")
+        btn_logout.clicked.connect(self.logout)
+        sidebar_layout.addWidget(self.nav_list)
+        sidebar_layout.addStretch()
+        sidebar_layout.addWidget(btn_logout)
+        layout.addWidget(sidebar_container)
         self.stack = QStackedWidget()
         self.refresh_pages()
-        layout.addWidget(self.sidebar); layout.addWidget(self.stack)
+        layout.addWidget(self.stack)
 
-    def nav(self, i):
-        max_idx = 4 if self.role == "admin" else 3
-        if i == max_idx: self.logout(); return
-        self.stack.setCurrentIndex(i); self.refresh_pages() 
+    def switch_page(self, i):
+        self.stack.setCurrentIndex(i); self.refresh_pages()
 
     def refresh_pages(self):
         current = self.stack.currentIndex()
-        for _ in range(self.stack.count()): self.stack.removeWidget(self.stack.widget(0))
+        while self.stack.count():
+            widget = self.stack.widget(0)
+            self.stack.removeWidget(widget)
+            widget.deleteLater()
         if self.role == "admin":
             self.stack.addWidget(self.view_dashboard())
             self.stack.addWidget(self.view_stock())
@@ -257,9 +227,6 @@ class AppWidget(QWidget):
             self.stack.addWidget(self.view_my_orders())
             self.stack.addWidget(self.view_settings())
         self.stack.setCurrentIndex(current if current >= 0 else 0)
-
-    # ... (Vues Dashboard, Orders, Catalog, MyOrders, Settings, Stock Inchangés - Voir réponse précédente) ...
-    # Je ne les recopie pas ici pour raccourcir, MAIS je corrige view_users ci-dessous :
 
     def view_dashboard(self):
         scroll = QScrollArea(); scroll.setWidgetResizable(True)
@@ -285,27 +252,40 @@ class AppWidget(QWidget):
 
     def view_stock(self):
         w = QWidget(); l = QVBoxLayout(w)
+        search_bar = QLineEdit()
+        search_bar.setPlaceholderText("🔍 Rechercher un produit...")
+        search_bar.textChanged.connect(lambda text: self.filter_table(self.table_stock, text))
+        l.addWidget(search_bar)
         form = QHBoxLayout()
         self.n = QLineEdit(); self.n.setPlaceholderText("Nom")
         self.p = QLineEdit(); self.p.setPlaceholderText("Prix")
         self.q = QLineEdit(); self.q.setPlaceholderText("Qté")
         btn = QPushButton("AJOUTER"); btn.clicked.connect(self.add_p)
         form.addWidget(self.n); form.addWidget(self.p); form.addWidget(self.q); form.addWidget(btn)
-        tab = QTableWidget(0, 5); tab.setHorizontalHeaderLabels(["Produit", "Prix", "Stock", "Dispo", "Actions"])
-        tab.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        l.addLayout(form)
+        self.table_stock = QTableWidget(0, 5); self.table_stock.setHorizontalHeaderLabels(["Produit", "Prix", "Stock", "Dispo", "Actions"])
+        self.table_stock.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         for r, p in enumerate(self.db.get_all_products()):
-            tab.insertRow(r); tab.setItem(r, 0, QTableWidgetItem(p['nom'])); tab.setItem(r, 1, QTableWidgetItem(f"{p['prix']} €")); tab.setItem(r, 2, QTableWidgetItem(p['quantite']))
+            self.table_stock.insertRow(r)
+            self.table_stock.setItem(r, 0, QTableWidgetItem(p['nom']))
+            self.table_stock.setItem(r, 1, QTableWidgetItem(f"{p['prix']} €"))
+            self.table_stock.setItem(r, 2, QTableWidgetItem(p['quantite']))
             real, res, av = self.db.get_stock_status(p['id'])
-            tab.setItem(r, 3, QTableWidgetItem(f"{av} (Res:{res})"))
+            self.table_stock.setItem(r, 3, QTableWidgetItem(f"{av} (Res:{res})"))
             frame = QWidget(); hl = QHBoxLayout(frame); hl.setContentsMargins(0,0,0,0)
-            btn_edit = QPushButton("📝"); btn_edit.setToolTip("Modifier"); btn_edit.setProperty("class", "tab-btn")
-            btn_edit.setStyleSheet("background-color: #f9e2af; color: black; padding: 5px;")
+            btn_edit = QPushButton("📝"); btn_edit.setProperty("class", "tab-btn"); btn_edit.setStyleSheet("background-color: #f9e2af; color: black;")
             btn_edit.clicked.connect(lambda ch, prod=p: self.edit_p(prod))
-            btn_stock = QPushButton("📦"); btn_stock.setToolTip("Ajuster Stock"); btn_stock.setProperty("class", "tab-btn")
-            btn_stock.setStyleSheet("background-color: #a6e3a1; color: black; padding: 5px;")
+            btn_stock = QPushButton("📦"); btn_stock.setProperty("class", "tab-btn"); btn_stock.setStyleSheet("background-color: #a6e3a1; color: black;")
             btn_stock.clicked.connect(lambda ch, prod=p: self.adjust_s(prod))
-            hl.addWidget(btn_edit); hl.addWidget(btn_stock); tab.setCellWidget(r, 4, frame)
-        l.addLayout(form); l.addWidget(tab); return w
+            hl.addWidget(btn_edit); hl.addWidget(btn_stock); self.table_stock.setCellWidget(r, 4, frame)
+        l.addWidget(self.table_stock)
+        return w
+
+    def filter_table(self, table, text):
+        for i in range(table.rowCount()):
+            item = table.item(i, 0)
+            if text.lower() in item.text().lower(): table.setRowHidden(i, False)
+            else: table.setRowHidden(i, True)
 
     def add_p(self):
         try: self.db.add_product({"nom":self.n.text(), "prix":float(self.p.text()), "quantite":int(self.q.text()), "categorie":"Divers"}); self.refresh_pages()
@@ -313,13 +293,11 @@ class AppWidget(QWidget):
 
     def edit_p(self, p):
         d = ProductEditDialog(p, self)
-        if d.exec_(): 
-            self.db.update_product_data(p['id'], d.get_data()); QMessageBox.information(self, "Succès", "Produit modifié !"); self.refresh_pages()
+        if d.exec_(): self.db.update_product_data(p['id'], d.get_data()); self.refresh_pages()
 
     def adjust_s(self, p):
         d = StockQuickDialog(p, self)
-        if d.exec_(): 
-            self.db.adjust_stock(p['id'], d.delta); QMessageBox.information(self, "Succès", "Stock ajusté !"); self.refresh_pages()
+        if d.exec_(): self.db.adjust_stock(p['id'], d.delta); self.refresh_pages()
 
     def view_orders(self):
         w = QWidget(); l = QVBoxLayout(w)
@@ -328,35 +306,27 @@ class AppWidget(QWidget):
             tab.insertRow(r); tab.setItem(r, 0, QTableWidgetItem(o['id'])); tab.setItem(r, 1, QTableWidgetItem(o['user'])); tab.setItem(r, 2, QTableWidgetItem(f"{o['total']} €"))
             btn = QPushButton("EN ATTENTE" if o['status'] == 'PENDING' else "EXPÉDIÉE")
             if o['status'] == 'PENDING': btn.setStyleSheet("background: orange; color: black"); btn.clicked.connect(lambda ch, oid=o['id']: self.ship(oid))
-            else: btn.setStyleSheet("background: green; border: none"); btn.setDisabled(True)
+            else: btn.setStyleSheet("background: green; border: none; color: white"); btn.setDisabled(True)
             tab.setCellWidget(r, 3, btn)
         l.addWidget(tab); return w
 
     def ship(self, oid):
         if self.db.validate_order(oid): QMessageBox.information(self, "Succès", "Validée !"); self.refresh_pages()
 
-    # --- CORRECTION DE LA VUE UTILISATEURS ---
+    # --- CORRECTION DE LA VUE UTILISATEURS (COMPTEUR MANUEL) ---
     def view_users(self):
         w = QWidget(); l = QVBoxLayout(w); l.addWidget(QLabel("GESTION DES UTILISATEURS"))
         tab = QTableWidget(0, 3); tab.setHorizontalHeaderLabels(["Identifiant", "Rôle", "Action"]); tab.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-        
         users = self.db.get_all_users_list()
         current_row = 0
-        
-        for u, d in users.items():
+        for u, data in users.items():
             if u == self.username: continue
-            
             tab.insertRow(current_row)
             tab.setItem(current_row, 0, QTableWidgetItem(u))
-            tab.setItem(current_row, 1, QTableWidgetItem(d.get('role','client')))
-            
-            btn = QPushButton("SUPP")
-            btn.setStyleSheet("background: #e74c3c;")
-            btn.clicked.connect(lambda ch, usr=u: self.del_user(usr))
-            
+            tab.setItem(current_row, 1, QTableWidgetItem(data.get('role', 'client').upper()))
+            btn = QPushButton("SUPP"); btn.setProperty("class", "btn-danger"); btn.clicked.connect(lambda ch, usr=u: self.del_user(usr))
             tab.setCellWidget(current_row, 2, btn)
             current_row += 1
-            
         l.addWidget(tab); return w
 
     def del_user(self, u):
@@ -364,13 +334,20 @@ class AppWidget(QWidget):
 
     def view_catalog(self):
         w = QWidget(); l = QVBoxLayout(w)
-        tab = QTableWidget(0, 4); tab.setHorizontalHeaderLabels(["Produit", "Prix", "Dispo", "Panier"]); tab.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        search_bar = QLineEdit(); search_bar.setPlaceholderText("🔍 Rechercher un produit...")
+        search_bar.textChanged.connect(lambda text: self.filter_table(self.table_cat, text)); l.addWidget(search_bar)
+        self.table_cat = QTableWidget(0, 4); self.table_cat.setHorizontalHeaderLabels(["Produit", "Prix", "Dispo", "Panier"])
+        self.table_cat.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         for r, p in enumerate(self.db.get_all_products()):
             real, res, av = self.db.get_stock_status(p['id'])
-            tab.insertRow(r); tab.setItem(r, 0, QTableWidgetItem(p['nom'])); tab.setItem(r, 1, QTableWidgetItem(f"{p['prix']} €")); tab.setItem(r, 2, QTableWidgetItem(str(av)))
+            self.table_cat.insertRow(r)
+            self.table_cat.setItem(r, 0, QTableWidgetItem(p['nom']))
+            self.table_cat.setItem(r, 1, QTableWidgetItem(f"{p['prix']} €"))
+            self.table_cat.setItem(r, 2, QTableWidgetItem(str(av)))
             btn = QPushButton("COMMANDER"); av > 0 and btn.clicked.connect(lambda ch, pr=p, m=av: self.buy(pr, m)) or btn.setDisabled(True)
-            tab.setCellWidget(r, 3, btn)
-        l.addWidget(tab); return w
+            self.table_cat.setCellWidget(r, 3, btn)
+        l.addWidget(self.table_cat)
+        return w
 
     def buy(self, p, m):
         d = OrderDialog(p, m, self)
