@@ -26,7 +26,7 @@ jobs:
         run: pip install -r requirements.txt # Installe toutes les librairies listées dans votre requirements.txt
 
       - name: Lancement du Scan SonarCloud
-        uses: SonarSource/sonarcloud-github-action@master # Utilise l'action officielle de SonarSource
+        uses: SonarSource/sonarqube-scan-action@v5.0.0 # Utilise l'action officielle de SonarSource
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Jeton fourni automatiquement par GitHub pour l'action
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Votre Jeton API SonarCloud stocké dans les secrets GitHub (OBLIGATOIRE)
