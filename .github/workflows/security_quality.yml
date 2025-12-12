@@ -1,0 +1,64 @@
+name: CI/CD Sécurité et Qualité (Python) # Nom visible du workflow sur GitHub Actions
+
+# SECTION DÉCLENCHEURS (Quand le pipeline s'exécute-t-il ?)
+on:
+  push:
+    branches: [ "main" ] # Déclenché lorsqu'un nouveau code est poussé sur la branche 'main'
+  pull_request:
+    branches: [ "main" ] # Déclenché lorsqu'une Pull Request cible la branche 'main'
+
+jobs:
+  # JOB 1: QUALITÉ DU CODE (SonarCloud)
+  sonarcloud_scan:
+    name: Analyse de Qualité SonarCloud
+    runs-on: ubuntu-latest # Utilise la dernière machine virtuelle Linux de GitHub
+    steps:
+      - uses: actions/checkout@v4 # Étape 1 : Récupère la dernière version du code
+        with:
+          fetch-depth: 0 # IMPORTANT : Nécessaire pour que SonarCloud puisse analyser l'historique des commits
+
+      - name: Configuration de l'environnement Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' # Assure que l'environnement utilise Python 3.12
+
+      - name: Installation des dépendances
+        run: pip install -r requirements.txt # Installe toutes les librairies listées dans votre requirements.txt
+
+      - name: Lancement du Scan SonarCloud
+        uses: SonarSource/sonarcloud-github-action@master # Utilise l'action officielle de SonarSource
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Jeton fourni automatiquement par GitHub pour l'action
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Votre Jeton API SonarCloud stocké dans les secrets GitHub (OBLIGATOIRE)
+
+        with:
+          organization: miloupouetpouet # VOTRE organisation SonarCloud
+          projectKey: guardia-ultimate-gestion-produit-python # VOTRE clé de projet SonarCloud (doit correspondre au fichier .properties)
+
+  # JOB 2: SÉCURITÉ DYNAMIQUE (OWASP ZAP)
+  zap_scan:
+    name: Scan de Sécurité OWASP ZAP (Baseline)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4 # Récupère le code
+
+      - name: Configuration de l'environnement Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installation des dépendances
+        run: pip install -r requirements.txt
+
+      - name: Démarrage du Serveur Python
+        run: |
+          nohup python main_app.py & # Lance votre application en arrière-plan (non bloquant)
+          sleep 15 # Attend 15 secondes pour s'assurer que le serveur est bien démarré et répondant
+
+      - name: Lancement du ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.14.0 # Utilise l'action ZAP pour un scan rapide (Baseline)
+        with:
+          target: 'http://127.0.0.1:8080' # Cible locale où le serveur Python a été démarré
+          fail_action: false # Si ZAP trouve des alertes (ex: HIGH), le pipeline continue (utile pour les premières intégrations)
+          artifact_name: 'zap-scan-report' # Enregistre le rapport de scan comme un artefact téléchargeable
