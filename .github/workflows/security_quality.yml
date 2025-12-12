@@ -32,7 +32,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Votre Jeton API SonarCloud stocké dans les secrets GitHub (OBLIGATOIRE)
 
         with:
-          organization: miloupouetpouet # VOTRE organisation SonarCloud
+          organization: miloupouetpouet_Projet_4 # VOTRE organisation SonarCloud
           projectKey: guardia-ultimate-gestion-produit-python # VOTRE clé de projet SonarCloud (doit correspondre au fichier .properties)
 
   # JOB 2: SÉCURITÉ DYNAMIQUE (OWASP ZAP)
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v4 # Récupère le code
+      - uses: actions/checkout@v4 
 
       - name: Configuration de l'environnement Python
         uses: actions/setup-python@v5
@@ -49,16 +49,18 @@ jobs:
           python-version: '3.12'
 
       - name: Installation des dépendances
+        # Cette étape installe désormais Flask
         run: pip install -r requirements.txt
 
-      - name: Démarrage du Serveur Python
+      - name: Démarrage du Serveur Python pour ZAP
         run: |
-          nohup python main_app.py & # Lance votre application en arrière-plan (non bloquant)
-          sleep 60 # Attend 60 secondes pour s'assurer que le serveur est bien démarré et répondant
+          # Démarrage de web_app.py au lieu de main_app.py
+          nohup python web_app.py & 
+          sleep 45 # Temps d'attente confortable
 
       - name: Lancement du ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.14.0 # Utilise l'action ZAP pour un scan rapide (Baseline)
+        uses: zaproxy/action-baseline@v0.14.0 
         with:
-          target: 'http://127.0.0.1:8080' # Cible locale où le serveur Python a été démarré
-          fail_action: false # Si ZAP trouve des alertes (ex: HIGH), le pipeline continue (utile pour les premières intégrations)
-          artifact_name: 'zap-scan-report' # Enregistre le rapport de scan comme un artefact téléchargeable
+          target: 'http://127.0.0.1:8080' # Cible le serveur web que nous venons de lancer
+          fail_action: false 
+          artifact_name: 'zap-scan-report'
