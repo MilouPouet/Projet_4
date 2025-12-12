@@ -32,8 +32,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Votre Jeton API SonarCloud stocké dans les secrets GitHub (OBLIGATOIRE)
 
         with:
-          organization: miloupouetpouet_Projet_4 # VOTRE organisation SonarCloud
-          projectKey: guardia-ultimate-gestion-produit-python # VOTRE clé de projet SonarCloud (doit correspondre au fichier .properties)
+          organization: miloupouetpouet # VOTRE organisation SonarCloud
+          projectKey: miloupouetpouet_Projet_4 # VOTRE clé de projet SonarCloud (doit correspondre au fichier .properties)
 
   # JOB 2: SÉCURITÉ DYNAMIQUE (OWASP ZAP)
   zap_scan:
