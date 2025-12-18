@@ -78,5 +78,10 @@
         "hash": "318d7c7aefc2fdb6b7cde3599805df6574297202188591a0735687eb26fd56bf:973bd0d8e4cf383bc95c93bc9e1d51879d0b8831414fe5d31fc27c484d195c35",
         "role": "client",
         "2fa_secret": null
+    },
+    "milou": {
+        "hash": "2d77352a95accf334af1e771c5d1875dfcaae7e61bb8a2bb85c1e11a404a2ea6:283d62a764f484a04dae10ac18b7c2b46bddeae85dc2cf2938fbe1bb4093598b",
+        "role": "admin",
+        "2fa_secret": "DEEOUDRL3G774AFH6EHC3KT2GJKZ6MPI"
     }
 }

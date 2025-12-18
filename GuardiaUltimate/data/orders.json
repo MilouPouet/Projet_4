@@ -1872,7 +1872,7 @@
         "id": "CMD-1765525445",
         "user": "Trystan",
         "date": "12/12/2025",
-        "status": "PENDING",
+        "status": "SHIPPED",
         "items": [
             {
                 "id": "344f8c21-1b73-4a71-918e-413b742b98ec",
@@ -1888,5 +1888,62 @@
             }
         ],
         "total": 298.7
+    },
+    {
+        "id": "CMD-1765526277",
+        "user": "Trystan",
+        "date": "12/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "e2bffee3-f2c1-4f17-9df0-15b54bfd0e04",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            },
+            {
+                "id": "ab5747b1-4a51-4da0-b2aa-783cf2de1cea",
+                "nom": "Plateau Magn\u00e9tique PEI 235",
+                "qty": 1,
+                "price": 29.9
+            },
+            {
+                "id": "7246a1f9-8ef7-46a8-8d17-ed571e925d21",
+                "nom": "Filament PLA+ Blanc 1kg",
+                "qty": 2,
+                "price": 22.9
+            }
+        ],
+        "total": 304.7
+    },
+    {
+        "id": "CMD-1765527744",
+        "user": "Trystan",
+        "date": "12/12/2025",
+        "status": "SHIPPED",
+        "items": [
+            {
+                "id": "344f8c21-1b73-4a71-918e-413b742b98ec",
+                "nom": "Kit Buse Laiton 0.4mm (x5)",
+                "qty": 20,
+                "price": 9.9
+            }
+        ],
+        "total": 198.0
+    },
+    {
+        "id": "CMD-1766075805",
+        "user": "Trystan",
+        "date": "18/12/2025",
+        "status": "PENDING",
+        "items": [
+            {
+                "id": "e2bffee3-f2c1-4f17-9df0-15b54bfd0e04",
+                "nom": "Wanhao Duplicator 12/230 (Mono)",
+                "qty": 1,
+                "price": 229.0
+            }
+        ],
+        "total": 229.0
     }
 ]
