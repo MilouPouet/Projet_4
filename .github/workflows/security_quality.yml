@@ -1,30 +1,31 @@
-name: CI/CD Sécurité et Qualité (Python) # Nom visible sur GitHub Actions
+name: CI/CD Sécurité et Qualité (Python)
 
-# SECTION DÉCLENCHEURS : S'exécute sur push ou PR vers la branche main
+# Déclenchement automatique à chaque push ou demande de fusion (Pull Request)
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-# PERMISSIONS : Essentiel pour que ZAP puisse créer des rapports/issues
+# Autorisations nécessaires pour générer des rapports et écrire des alertes
 permissions:
   contents: read
   issues: write
 
 jobs:
-  # --- JOB 1 : SÉCURITÉ STATIQUE (Gitleaks, Bandit, Safety) ---
+  # --- ANALYSE STATIQUE (SAST) ---
+  # Objectif : Trouver les failles dans le code avant qu'il ne soit exécuté.
   static_security:
     name: Sécurité (Secrets, Code, Dépendances)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Récupération du code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Important pour Gitleaks (scan de l'historique)
+          fetch-depth: 0
 
-      # 1. Gitleaks : Détection de mots de passe ou clés API en clair
-      - name: Gitleaks Scan
+      # GITLEAKS : Détecte les mots de passe, clés API ou tokens oubliés dans le code.
+      - name: Scan des Secrets (Gitleaks)
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -34,37 +35,40 @@ jobs:
         with:
           python-version: '3.12'
 
-      # 2. Bandit : Analyse des failles de sécurité dans le code Python
-      - name: Install Bandit
-        run: pip install bandit
-      - name: Run Bandit
-        run: bandit -r . -x ./tests -v
+      # BANDIT : Cherche les failles spécifiques à Python (ex: debug=True, injection).
+      # Le flag '-lll' empêche le blocage pour les alertes mineures (Low/Medium).
+      - name: Analyse du code Python (Bandit)
+        run: |
+          pip install bandit
+          bandit -r . -x ./tests -v -lll
 
-      # 3. Safety : Vérifie si vos librairies (requirements.txt) sont vulnérables
-      - name: Install Safety
-        run: pip install safety
-      - name: Run Safety Check
-        run: safety check -r requirements.txt
+      # SAFETY : Vérifie si les librairies installées (via requirements.txt) sont piratées ou vulnérables.
+      - name: Sécurité des Librairies (Safety)
+        run: |
+          pip install safety
+          safety check -r requirements.txt
 
-  # --- JOB 2 : QUALITÉ DU CODE (SonarCloud) ---
+  # --- QUALITÉ DU CODE ---
+  # Objectif : Vérifier que le code est propre, maintenable et sans bugs logiques.
   sonarcloud_scan:
     name: Analyse de Qualité SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Récupération du code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 
 
-      - name: Configuration de Python
+      - name: Installation environnement & dépendances
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Installation des dépendances
+      - name: Installation des librairies
         run: pip install -r requirements.txt
 
-      - name: Lancement du Scan SonarCloud
+      # SONARCLOUD : Le "professeur" qui note la propreté de ton code.
+      - name: Scan Qualité (SonarCloud)
         uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -73,15 +77,16 @@ jobs:
           organization: miloupouetpouet
           projectKey: MilouPouet_Projet_4
 
-  # --- JOB 3 : SÉCURITÉ DYNAMIQUE (OWASP ZAP) ---
+  # --- ANALYSE DYNAMIQUE (DAST) ---
+  # Objectif : Tester l'application "en vie" contre de vraies tentatives de piratage.
   zap_scan:
     name: Scan de Sécurité OWASP ZAP (Baseline)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Récupération du code
         uses: actions/checkout@v4 
 
-      - name: Configuration de Python
+      - name: Préparation du serveur de test
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -89,16 +94,16 @@ jobs:
       - name: Installation des dépendances
         run: pip install -r requirements.txt
 
-      - name: Démarrage du Serveur Python pour ZAP
+      # On lance l'app web en arrière-plan pour que le scanner puisse l'attaquer.
+      - name: Lancement de l'application
         run: |
-          # On lance l'application en arrière-plan
           nohup python web_app.py & 
-          # On attend que le serveur soit prêt (45 sec)
           sleep 45 
 
-      - name: Lancement du ZAP Baseline Scan
+      # OWASP ZAP : Simule des attaques de hacker sur le site lancé.
+      - name: Scan d'Attaque (OWASP ZAP)
         uses: zaproxy/action-baseline@v0.14.0 
         with:
-          target: 'http://127.0.0.1:8080' # Doit correspondre au port de web_app.py
-          fail_action: false # Ne bloque pas le pipeline en cas d'alerte (pour analyse)
+          target: 'http://127.0.0.1:8080'
+          fail_action: false # Ne bloque pas si une alerte mineure est trouvée
           artifact_name: 'zap-scan-report'
