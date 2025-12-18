@@ -1,49 +1,62 @@
-name: CI/CD Sécurité et Qualité (Python) # Nom visible du workflow sur GitHub Actions
+name: CI/CD Sécurité et Qualité (Python) # Nom visible sur GitHub Actions
 
-# SECTION DÉCLENCHEURS (Quand le pipeline s'exécute-t-il ?)
+# SECTION DÉCLENCHEURS : S'exécute sur push ou PR vers la branche main
 on:
   push:
-    branches: [ "main" ] # Déclenché lorsqu'un nouveau code est poussé sur la branche 'main'
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ] # Déclenché lorsqu'une Pull Request cible la branche 'main'
+    branches: [ "main" ]
+
+# PERMISSIONS : Essentiel pour que ZAP puisse créer des rapports/issues
+permissions:
+  contents: read
+  issues: write
 
 jobs:
-  # JOB 1: QUALITÉ DU CODE (SonarCloud)
-  sonarcloud_scan:
-    name: Analyse de Qualité SonarCloud
-    runs-on: ubuntu-latest # Utilise la dernière machine virtuelle Linux de GitHub
+  # --- JOB 1 : SÉCURITÉ STATIQUE (Gitleaks, Bandit, Safety) ---
+  static_security:
+    name: Sécurité (Secrets, Code, Dépendances)
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # Étape 1 : Récupère la dernière version du code
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # IMPORTANT : Nécessaire pour que SonarCloud puisse analyser l'historique des commits
+          fetch-depth: 0 # Important pour Gitleaks (scan de l'historique)
 
-      - name: Configuration de l'environnement Python
+      # 1. Gitleaks : Détection de mots de passe ou clés API en clair
+      - name: Gitleaks Scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configuration de Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12' # Assure que l'environnement utilise Python 3.12
+          python-version: '3.12'
 
-      - name: Installation des dépendances
-        run: pip install -r requirements.txt # Installe toutes les librairies listées dans votre requirements.txt
+      # 2. Bandit : Analyse des failles de sécurité dans le code Python
+      - name: Install Bandit
+        run: pip install bandit
+      - name: Run Bandit
+        run: bandit -r . -x ./tests -v
 
-      - name: Lancement du Scan SonarCloud
-        uses: SonarSource/sonarqube-scan-action@v5.0.0 # Utilise l'action officielle de SonarSource
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Jeton fourni automatiquement par GitHub pour l'action
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Votre Jeton API SonarCloud stocké dans les secrets GitHub (OBLIGATOIRE)
+      # 3. Safety : Vérifie si vos librairies (requirements.txt) sont vulnérables
+      - name: Install Safety
+        run: pip install safety
+      - name: Run Safety Check
+        run: safety check -r requirements.txt
 
-        with:
-          organization: miloupouetpouet # VOTRE organisation SonarCloud
-          projectKey: guardia-ultimate-gestion-produit-python # VOTRE clé de projet SonarCloud (doit correspondre au fichier .properties)
-
-  # JOB 2: SÉCURITÉ DYNAMIQUE (OWASP ZAP)
-  zap_scan:
-    name: Scan de Sécurité OWASP ZAP (Baseline)
+  # --- JOB 2 : QUALITÉ DU CODE (SonarCloud) ---
+  sonarcloud_scan:
+    name: Analyse de Qualité SonarCloud
     runs-on: ubuntu-latest
-    
     steps:
-      - uses: actions/checkout@v4 # Récupère le code
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
 
-      - name: Configuration de l'environnement Python
+      - name: Configuration de Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -51,14 +64,41 @@ jobs:
       - name: Installation des dépendances
         run: pip install -r requirements.txt
 
-      - name: Démarrage du Serveur Python
+      - name: Lancement du Scan SonarCloud
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          organization: miloupouetpouet
+          projectKey: MilouPouet_Projet_4
+
+  # --- JOB 3 : SÉCURITÉ DYNAMIQUE (OWASP ZAP) ---
+  zap_scan:
+    name: Scan de Sécurité OWASP ZAP (Baseline)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 
+
+      - name: Configuration de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installation des dépendances
+        run: pip install -r requirements.txt
+
+      - name: Démarrage du Serveur Python pour ZAP
         run: |
-          nohup python main_app.py & # Lance votre application en arrière-plan (non bloquant)
-          sleep 15 # Attend 15 secondes pour s'assurer que le serveur est bien démarré et répondant
+          # On lance l'application en arrière-plan
+          nohup python web_app.py & 
+          # On attend que le serveur soit prêt (45 sec)
+          sleep 45 
 
       - name: Lancement du ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.14.0 # Utilise l'action ZAP pour un scan rapide (Baseline)
+        uses: zaproxy/action-baseline@v0.14.0 
         with:
-          target: 'http://127.0.0.1:8080' # Cible locale où le serveur Python a été démarré
-          fail_action: false # Si ZAP trouve des alertes (ex: HIGH), le pipeline continue (utile pour les premières intégrations)
-          artifact_name: 'zap-scan-report' # Enregistre le rapport de scan comme un artefact téléchargeable
+          target: 'http://127.0.0.1:8080' # Doit correspondre au port de web_app.py
+          fail_action: false # Ne bloque pas le pipeline en cas d'alerte (pour analyse)
+          artifact_name: 'zap-scan-report'
