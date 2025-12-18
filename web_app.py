@@ -1,5 +1,5 @@
 # Fichier : web_app.py
-# Serveur minimaliste pour l'analyse dynamique de sécurité (OWASP ZAP)
+# Serveur minimaliste pour l'analyse dynamique de sécurité (OWASP ZAP)(serveur de l'application web)
 
 from flask import Flask, jsonify
 
