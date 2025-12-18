@@ -33,21 +33,26 @@ class DataManager:
 
     def record_daily_stock(self):
         today = datetime.now().strftime("%Y-%m-%d")
-        total_qty = sum(int(float(p['quantite'])) for p in self.get_all_products())
-        stats = {}
-        if os.path.exists(STATS_FILE):
-            try:
-                with open(STATS_FILE, 'r') as f: stats = json.load(f)
-            except: pass
-        stats[today] = total_qty
-        with open(STATS_FILE, 'w') as f: json.dump(stats, f, indent=4)
+        try:
+            total_qty = sum(int(float(p['quantite'])) for p in self.get_all_products())
+            stats = {}
+            if os.path.exists(STATS_FILE):
+                try:
+                    with open(STATS_FILE, 'r') as f: stats = json.load(f)
+                except Exception as e:
+                    print(f"Erreur lecture stats: {e}")
+            stats[today] = total_qty
+            with open(STATS_FILE, 'w') as f: json.dump(stats, f, indent=4)
+        except Exception as e:
+            print(f"Erreur record_daily_stock: {e}")
 
     def get_stock_history(self):
         self.record_daily_stock()
         if os.path.exists(STATS_FILE):
             try:
                 with open(STATS_FILE, 'r') as f: return json.load(f)
-            except: pass
+            except Exception as e:
+                print(f"Erreur get_stock_history: {e}")
         return {}
 
     def get_sales_per_day(self):
@@ -60,7 +65,9 @@ class DataManager:
                 fmt_date = date_obj.strftime("%Y-%m-%d")
                 qty = sum(int(item['qty']) for item in o['items'])
                 sales_raw[fmt_date] = sales_raw.get(fmt_date, 0) + qty
-            except: continue
+            except Exception as e:
+                print(f"Erreur parsing date vente: {e}")
+                continue
         return sales_raw
 
     def get_categories_distribution(self):
@@ -68,7 +75,10 @@ class DataManager:
         cats = {}
         for p in prods:
             c = p.get('categorie', 'Divers') or 'Divers'
-            cats[c] = cats.get(c, 0) + int(float(p['quantite']))
+            try:
+                cats[c] = cats.get(c, 0) + int(float(p['quantite']))
+            except Exception as e:
+                print(f"Erreur categorie quantite: {e}")
         return cats
 
     def get_all_products(self) -> List[Dict]:
@@ -77,16 +87,23 @@ class DataManager:
             with open(DATA_FILE, 'r', encoding='utf-8') as f:
                 reader = csv.DictReader(f)
                 for row in reader:
-                    if row.get('secret_info'): row['secret_info'] = SecurityService.decrypt_data(row['secret_info'])
+                    if row.get('secret_info'): 
+                        row['secret_info'] = SecurityService.decrypt_data(row['secret_info'])
                     data.append(row)
-        except: pass
+        except Exception as e:
+            print(f"Erreur lecture CSV produits: {e}")
         return data
 
     def get_stock_status(self, pid):
         prods = self.get_all_products()
         p = next((x for x in prods if x['id'] == pid), None)
         if not p: return (0, 0, 0)
-        real = int(float(p['quantite']))
+        try:
+            real = int(float(p['quantite']))
+        except Exception as e:
+            print(f"Erreur conversion stock: {e}")
+            real = 0
+            
         orders = self.get_all_orders()
         reserved = sum(int(item['qty']) for o in orders if o.get('status') == 'PENDING' for item in o.get('items', []) if item['id'] == pid)
         return (real, reserved, real - reserved)
@@ -95,7 +112,8 @@ class DataManager:
         if os.path.exists(USER_FILE):
             try:
                 with open(USER_FILE, 'r') as f: return json.load(f).get(u)
-            except: pass
+            except Exception as e:
+                print(f"Erreur lecture user data: {e}")
         return None
 
     def register_user(self, u, data):
@@ -103,7 +121,8 @@ class DataManager:
         if os.path.exists(USER_FILE):
             try:
                 with open(USER_FILE, 'r') as f: users = json.load(f)
-            except: pass
+            except Exception as e:
+                print(f"Erreur lecture register user: {e}")
         users[u] = data
         with open(USER_FILE, 'w') as f: json.dump(users, f, indent=4)
 
@@ -136,7 +155,10 @@ class DataManager:
         rows = self.get_all_products()
         for r in rows:
             if r['id'] == product_id:
-                r['quantite'] = max(0, int(float(r['quantite'])) + delta)
+                try:
+                    r['quantite'] = max(0, int(float(r['quantite'])) + delta)
+                except Exception as e:
+                    print(f"Erreur calcul stock: {e}")
                 break
         self._rewrite_csv(rows)
 
@@ -160,7 +182,8 @@ class DataManager:
             try:
                 with open(ORDER_FILE, 'r') as f:
                     return json.load(f)
-            except:
+            except Exception as e:
+                print(f"Erreur lecture commandes: {e}")
                 return []
         return []
 
@@ -181,7 +204,11 @@ class DataManager:
         prods = self.get_all_products()
         for item in t['items']:
             for p in prods:
-                if p['id'] == item['id']: p['quantite'] = max(0, int(float(p['quantite'])) - item['qty'])
+                if p['id'] == item['id']: 
+                    try:
+                        p['quantite'] = max(0, int(float(p['quantite'])) - item['qty'])
+                    except Exception as e:
+                        print(f"Erreur débit stock commande: {e}")
         self._rewrite_csv(prods)
         t['status'] = "SHIPPED"
         with open(ORDER_FILE, 'w') as f: json.dump(orders, f, indent=4)
@@ -191,7 +218,8 @@ class DataManager:
         if os.path.exists(USER_FILE):
             try:
                 with open(USER_FILE, 'r') as f: return json.load(f)
-            except: pass
+            except Exception as e:
+                print(f"Erreur lecture users list: {e}")
         return {}
     
     def delete_user(self, username):
