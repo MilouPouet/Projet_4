@@ -151,16 +151,10 @@ STYLESHEET = """
         text-transform: uppercase;
         font-size: 12px;
     }
-    
-    /* --- HIDE THE WHITE RECTANGLE VIA CSS AS A BACKUP --- */
-    QTableCornerButton::section {
-        background-color: #151521;
-        border: none;
-    }
     QHeaderView::section:vertical {
-        background-color: #1e1e2d;
-        color: #1e1e2d;
-        border: none;
+        background-color: #1e1e2d; 
+        border-right: 1px solid #2b2b40;
+        padding-left: 5px;
     }
     
     QLabel#H1 { font-size: 28px; font-weight: bold; color: white; }
@@ -224,24 +218,24 @@ class StockAdjustDialog(QDialog):
         btn = QPushButton("VALIDER"); btn.clicked.connect(self.accept); l.addWidget(btn)
     def get_val(self): return self.sb.value()
 
-# --- LOGIN ---
+# --- LOGIN (MODIFIE : PLUS D'OPTION ADMIN) ---
 class LoginWidget(QWidget):
     def __init__(self, parent_controller):
         super().__init__()
         self.parent_controller = parent_controller; self.db = DataManager()
         l = QVBoxLayout(self); l.setAlignment(Qt.AlignCenter)
-        card = Card(); card.setFixedSize(400, 500)
+        card = Card(); card.setFixedSize(400, 450) # Hauteur réduite
         cl = QVBoxLayout(card); cl.setSpacing(20); cl.setContentsMargins(40,40,40,40)
         
         lbl = QLabel("Guardia Analytics"); lbl.setObjectName("H1"); lbl.setAlignment(Qt.AlignCenter)
         self.u = QLineEdit(); self.u.setPlaceholderText("Utilisateur")
         self.p = QLineEdit(); self.p.setPlaceholderText("Mot de passe"); self.p.setEchoMode(QLineEdit.Password)
-        self.chk = QCheckBox("Admin")
+        # Checkbox Admin SUPPRIMÉE
         
         b_in = QPushButton("Se Connecter"); b_in.setFixedHeight(45); b_in.clicked.connect(self.login)
         b_up = QPushButton("Créer Compte"); b_up.setProperty("class", "btn-secondary"); b_up.clicked.connect(self.register)
         
-        cl.addWidget(lbl); cl.addSpacing(20); cl.addWidget(self.u); cl.addWidget(self.p); cl.addWidget(self.chk)
+        cl.addWidget(lbl); cl.addSpacing(20); cl.addWidget(self.u); cl.addWidget(self.p)
         cl.addSpacing(10); cl.addWidget(b_in); cl.addWidget(b_up)
         l.addWidget(card)
 
@@ -256,8 +250,9 @@ class LoginWidget(QWidget):
     def register(self):
         u, p = self.u.text(), self.p.text()
         if u and p: 
-            self.db.register_user(u, {"hash": SecurityService.hash_password(p), "role": "admin" if self.chk.isChecked() else "client"})
-            QMessageBox.information(self, "OK", "Compte créé")
+            # FORCE ROLE CLIENT
+            self.db.register_user(u, {"hash": SecurityService.hash_password(p), "role": "client"})
+            QMessageBox.information(self, "OK", "Compte créé (Client)")
 
 # --- 2FA ---
 class TwoFAWidget(QWidget):

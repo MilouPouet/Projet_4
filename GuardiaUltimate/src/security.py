@@ -46,7 +46,9 @@ class SecurityService:
     @staticmethod
     def is_password_pwned(p):
         try:
-            h = hashlib.sha1(p.encode()).hexdigest().upper()
+            # Hashage SHA1 requis pour l'API Pwned Passwords (k-Anonymity)
+            # nosec indique aux scanners de sécurité d'ignorer l'alerte sur SHA1 ici
+            h = hashlib.sha1(p.encode()).hexdigest().upper() # nosec
             return h[5:] in requests.get(f"https://api.pwnedpasswords.com/range/{h[:5]}", timeout=2).text
         except: return False
     @staticmethod
