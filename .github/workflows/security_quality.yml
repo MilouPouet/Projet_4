@@ -67,7 +67,7 @@ jobs:
       - name: Installation des librairies
         run: pip install -r requirements.txt
 
-      # SONARCLOUD : Le "professeur" qui note la propreté de ton code.
+      # SONARCLOUD : ce qui "note" la propreté du code.
       - name: Scan Qualité (SonarCloud)
         uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
