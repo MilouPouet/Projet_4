@@ -18,5 +18,5 @@ def products():
     return jsonify({"data": "Données de produits simulées"})
 
 if __name__ == '__main__':
-    # ESSENTIEL : Écoute sur toutes les interfaces (0.0.0.0) et le port 8080.
+    # ESSENTIEL : Écoute sur toutes les interfaces (0.0.0.0) et le port 8080
     app.run(host='0.0.0.0', port=8080, debug=False)
