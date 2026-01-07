@@ -255,10 +255,16 @@ class LoginWidget(QWidget):
             QMessageBox.information(self, "OK", "Compte créé (Client)")
 
 # --- 2FA ---
+# --- REMPLACE TOUT LE BLOC "class TwoFAWidget" PAR ÇA : ---
+
 class TwoFAWidget(QWidget):
     def __init__(self, ctrl, u, r, s, setup=False):
         super().__init__()
         self.ctrl = ctrl; self.u = u; self.r = r; self.s = s
+        
+        # ### MODIFICATION 1 : On mémorise si on est en mode "création" ###
+        self.is_setup_mode = setup 
+        
         l = QVBoxLayout(self); l.setAlignment(Qt.AlignCenter)
         card = Card(); card.setFixedSize(350, 450)
         cl = QVBoxLayout(card); cl.setSpacing(15); cl.setContentsMargins(30,30,30,30)
@@ -276,7 +282,10 @@ class TwoFAWidget(QWidget):
 
     def check(self):
         if SecurityService.verify_2fa_code(self.s, self.code.text()):
-            if hasattr(self, 'setup'): DataManager().update_user_2fa(self.u, self.s)
+            # ### MODIFICATION 2 : Si c'est une création, on SAUVEGARDE la clé maintenant ###
+            if self.is_setup_mode:
+                DataManager().update_user_2fa(self.u, self.s)
+            
             self.ctrl.show_app(self.u, self.r)
         else: QMessageBox.warning(self, "Erreur", "Code incorrect")
 
